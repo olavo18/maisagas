@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maisa Gás</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#0a1f44,#00c853);
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-around;
+background:rgba(0,0,0,0.3);
+padding:12px;
+}
+
+nav button{
+background:none;
+border:none;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+.screen{
+display:none;
+padding:20px;
+}
+
+.active{display:block;}
+
+.card{
+background:white;
+color:black;
+border-radius:20px;
+padding:20px;
+max-width:420px;
+margin:20px auto;
+}
+
+.total{
+text-align:center;
+font-size:28px;
+color:#0a1f44;
+font-weight:bold;
+}
+
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#25d366;
+color:white;
+font-size:16px;
+margin-top:10px;
+cursor:pointer;
+}
+
+.pix{
+background:#f1f1f1;
+padding:10px;
+border-radius:10px;
+text-align:center;
+margin-top:10px;
+}
+
+select{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+}
+
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+padding:15px;
+border-radius:50%;
+color:white;
+text-decoration:none;
+font-size:22px;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<button onclick="trocar('home')">🏠 Início</button>
+<button onclick="trocar('povo')">💙 Gás do Povo</button>
+</nav>
+
+<div id="home" class="screen active">
+<div class="card">
+<h2>🔥 Botijão P13</h2>
+<p class="total">R$ 132,00</p>
+
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20pedir%201%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
+<button class="btn">📲 Pedir pelo WhatsApp</button>
+</a>
+
+<div class="pix">
+💳 PIX: <b id="pix">41992056141</b><br>
+<button class="btn" onclick="copiarPix()">Copiar PIX</button>
+</div>
+</div>
+</div>
+
+<div id="povo" class="screen">
+<div class="card">
+<h2>💙 Gás do Povo</h2>
+
+<select id="tipo" onchange="calcular()">
+<option value="101">Retirada - R$101</option>
+<option value="126">Entrega - R$126</option>
+</select>
+
+<p class="total" id="valor">R$ 101,00</p>
+
+<a id="linkPovo" target="_blank">
+<button class="btn">📲 Solicitar</button>
+</a>
+
+</div>
+</div>
+
+<a href="https://wa.me/5541992056141" class="float">💬</a>
+
+<script>
+function trocar(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function copiarPix(){
+let pix=document.getElementById("pix").innerText;
+navigator.clipboard.writeText(pix);
+alert("PIX copiado!");
+}
+
+function calcular(){
+let tipo=document.getElementById('tipo').value;
+let texto=document.getElementById('tipo').options[document.getElementById('tipo').selectedIndex].text;
+
+document.getElementById('valor').innerText="R$ "+tipo+",00";
+
+let msg="Olá, quero "+texto+". Nome: Endereço:";
+document.getElementById('linkPovo').href="https://wa.me/5541992056141?text="+encodeURIComponent(msg);
+}
+
+calcular();
+</script>
+
+</body>
+</html>
