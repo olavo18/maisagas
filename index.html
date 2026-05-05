@@ -137,6 +137,8 @@ position: sticky; top:0; z-index: 100;
 
     <div id="povo" class="screen">
         <div class="card">
+            <img src="gas.png" class="img-produto">
+            
             <div style="color: var(--azul-main); margin-bottom: 15px;">
                 <i class="fa-solid fa-users-gear" style="font-size: 30px;"></i>
                 <h3>Gás do Povo</h3>
@@ -174,17 +176,10 @@ position: sticky; top:0; z-index: 100;
 <script>
 // FUNÇÃO PARA TROCAR ABAS
 function trocar(id){
-    // Esconde todas as telas
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    // Mostra a tela clicada
     document.getElementById(id).classList.add('active');
-    
-    // Remove o destaque de todos os botões
     document.querySelectorAll('.menu-item').forEach(b => b.classList.remove('active-tab'));
-    // Adiciona destaque no botão clicado
     document.getElementById('nav-' + id).classList.add('active-tab');
-    
-    // Rola para o topo automaticamente
     window.scrollTo(0,0);
 }
 
