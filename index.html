@@ -59,7 +59,7 @@
         .fechado { background: #fff5f5; color: #e53e3e; }
 
         .dot { height: 8px; width: 8px; border-radius: 50%; background-color: currentColor; animation: pulse 1.8s infinite; }
-        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
         /* MENU INFERIOR */
         .menu-inferior {
@@ -83,9 +83,8 @@
         .menu-item.active-tab { color: #fff; transform: translateY(-8px); }
         .menu-item.active-tab i { color: #5ce1ff; text-shadow: 0 0 10px #5ce1ff; }
 
-        /* CONTAINER E CARDS */
+        /* CARDS */
         .container { padding: 25px 20px; max-width: 500px; margin: 0 auto; }
-        
         .card {
             background: var(--white);
             border-radius: 35px;
@@ -93,25 +92,34 @@
             text-align: center;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
             transition: 0.4s;
-            position: relative; /* Para garantir que o card segure os elementos */
+            overflow: hidden;
         }
         
-        .card:hover { transform: translateY(-5px); }
+        /* Título com Z-index para ficar sempre na frente */
+        .card h2 { 
+            position: relative; 
+            z-index: 10; 
+            font-size: 24px; 
+            font-weight: 800; 
+            margin-bottom: 10px;
+        }
 
         .img-produto {
             width: 100%; height: 200px; object-fit: contain;
             margin-bottom: 20px;
-            animation: flutuar 4s infinite ease-in-out;
+            position: relative;
+            z-index: 1;
+            animation: flutuarSuave 4s infinite ease-in-out;
         }
 
-        @keyframes flutuar {
+        /* ANIMAÇÃO IGUAL AO DO GÁS (SEM SUBIR MUITO) */
+        @keyframes flutuarSuave {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-8px); }
         }
 
-        .price-text { font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+        .price-text { font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
 
-        /* BOTÕES */
         .btn-main {
             background: var(--gradient);
             color: white;
@@ -139,34 +147,19 @@
             display: flex; align-items: center; justify-content: center; gap: 10px;
             margin-top: 15px;
             border: 2px solid #edf2f7;
-            transition: 0.3s;
         }
-        .btn-mapa:hover { background: #edf2f7; color: var(--primary); }
 
         /* GÁS DO POVO */
-        .info-list { 
-            text-align: left; 
-            background: #f8faff; 
-            padding: 20px; 
-            border-radius: 25px; 
-            margin-bottom: 20px; 
-            border: 1px solid #e2e8f0; /* Adicionei uma borda para delimitar o bloco */
-        }
-        
-        .info-list p { 
-            font-size: 15px; margin-bottom: 12px; color: #4a5568; display: flex; align-items: center; gap: 10px;
-        }
-        
-        /* Ícones na lista */
-        .info-list p i { color: var(--accent); width: 20px; text-align: center;}
+        .info-list { text-align: left; background: #f8faff; padding: 20px; border-radius: 25px; margin-bottom: 20px; }
+        .info-list p { font-size: 15px; margin-bottom: 12px; color: #4a5568; display: flex; align-items: center; gap: 10px;}
 
         .img-cartao { width: 100%; border-radius: 18px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .img-gas-povo { height: 120px; width: auto; margin-bottom: 15px; animation: flutuar 4s infinite ease-in-out; }
+        .img-gas-povo { height: 120px; width: auto; margin-bottom: 15px; animation: flutuarSuave 4s infinite ease-in-out; }
 
-        /* TRANSIÇÃO DE TELAS */
+        /* TELAS */
         .screen { display: none; }
-        .active { display: block; animation: entradaTela 0.6s ease-out; }
-        @keyframes entradaTela { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .active { display: block; animation: entrada 0.6s ease-out; }
+        @keyframes entrada { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -215,12 +208,7 @@
             <h2>Água Font Life</h2>
             <img src="agua_font_life.png" class="img-produto">
             <div class="price-text" style="color: var(--accent);">R$ 26,00</div>
-            
-            <div class="info-list">
-                <p><i class="fa-solid fa-droplet"></i> Galão Font Life • 20 Litros</p>
-                <p><i class="fa-solid fa-repeat"></i> Com galão para troca</p>
-            </div>
-            
+            <p style="font-weight: 700; color: #718096; margin-bottom: 20px;">(Com galão para troca)</p>
             <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-main" style="background: var(--accent);">
                 <i class="fa-solid fa-truck-droplet"></i> PEDIR ÁGUA
             </a>
