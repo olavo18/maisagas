@@ -8,6 +8,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -23,7 +25,7 @@ text-align:center;
 padding:30px 15px;
 }
 
-/* LOGO REDONDA */
+/* LOGO */
 .logo{
 width:140px;
 height:140px;
@@ -87,6 +89,7 @@ box-shadow:0 15px 40px rgba(0,0,0,0.3);
 text-align:center;
 }
 
+/* PREÇO */
 .total{
 font-size:34px;
 font-weight:bold;
@@ -162,6 +165,7 @@ border-radius:8px;
 border:1px solid #ccc;
 }
 
+/* BADGE */
 .badge{
 background:#0066ff;
 color:white;
@@ -170,6 +174,11 @@ border-radius:20px;
 font-size:13px;
 margin-bottom:10px;
 display:inline-block;
+}
+
+/* ICON */
+i{
+margin-right:8px;
 }
 </style>
 
@@ -199,7 +208,7 @@ display:inline-block;
 <p class="total">R$ 132,00</p>
 
 <a href="https://wa.me/5541992056141?text=Olá,%20quero%20pedir%201%20gás%20P13.%20Nome:%20Endereço:%20Forma%20de%20pagamento:" target="_blank">
-<button class="btn">📲 Pedir Agora</button>
+<button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir Agora</button>
 </a>
 
 <div class="pix">
@@ -215,6 +224,8 @@ display:inline-block;
 <div id="povo" class="screen">
 <div class="card">
 
+<img src="gas.png" style="width:100%; border-radius:15px; margin-bottom:10px;">
+
 <span class="badge">Programa 💙</span>
 
 <h2>Gás do Povo</h2>
@@ -227,13 +238,13 @@ display:inline-block;
 <p class="total" id="valor">R$ 101,00</p>
 
 <a id="linkPovo" target="_blank">
-<button class="btn">📲 Solicitar</button>
+<button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
 </a>
 
 </div>
 </div>
 
-<!-- CHAT AJUDA -->
+<!-- CHAT -->
 
 <div class="chat">
 <b>🤖 Ajuda</b>
@@ -241,9 +252,11 @@ display:inline-block;
 <div id="resposta"></div>
 </div>
 
-<!-- WHATS FIXO -->
+<!-- WHATS -->
 
-<a href="https://wa.me/5541992056141" class="float">💬</a>
+<a href="https://wa.me/5541992056141" class="float">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
 
 <script>
 function trocar(id){
@@ -271,7 +284,7 @@ let t=this.value.toLowerCase();
 let r=document.getElementById('resposta');
 
 if(t.includes("preço")) r.innerText="P13 custa R$132 e Gás do povo a partir de R$101";
-else if(t.includes("pix")) r.innerText="Você pode pagar via PIX na aba início 💳";
+else if(t.includes("pix")) r.innerText="Você pode pagar via PIX 💳";
 else if(t.includes("entrega")) r.innerText="Entrega custa R$25 no gás do povo";
 else r.innerText="";
 });
@@ -281,4 +294,5 @@ calcular();
 
 </body>
 </html>
+
 
