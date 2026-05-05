@@ -94,7 +94,7 @@ body {
 
 .img-produto {
     width: 100%; 
-    height: 210px; 
+    height: 180px; 
     object-fit: contain;
     margin-bottom: 20px;
 }
@@ -135,7 +135,7 @@ body {
     border-radius: 20px;
     margin-bottom: 20px;
 }
-.info-box p { font-size: 13px; margin-bottom: 8px; line-height: 1.4; }
+.info-box p { font-size: 14px; margin-bottom: 10px; line-height: 1.4; }
 
 .flow { display: flex; justify-content: center; gap: 25px; margin: 25px 0; }
 .flow-step { text-align: center; font-size: 11px; font-weight: 700; color: var(--primary); }
@@ -233,13 +233,13 @@ body {
                 <img src="cartão.png" class="img-cartao-beneficio" alt="Cartão Gás do Povo">
             </div>
 
-            <img src="gas.png" class="img-produto" style="height: 150px;">
+            <img src="gas.png" class="img-produto" style="height: 120px;">
             <h3>Gás do Povo</h3>
             
             <div class="info-box">
-                <p><b>💳 Cartão do Benefício:</b> Pagamento exclusivo via cartão social.</p>
-                <p><b>🏠 Retirada no Depósito:</b> Traga o botijão vazio para troca sem custo.</p>
-                <p><b>🚚 Entrega em Casa:</b> Taxa fixa de R$ 25,00.</p>
+                <p><b>💳 Cartão:</b> Pague com seu cartão do benefício.</p>
+                <p><b>🏠 No Depósito:</b> Sem taxa de entrega (traga o botijão vazio).</p>
+                <p><b>🚚 Entrega:</b> Taxa de apenas R$ 25,00.</p>
             </div>
 
             <div class="flow">
@@ -248,11 +248,11 @@ body {
                     Cartão
                 </div>
                 <div class="flow-step">
-                    <div class="flow-icon" style="color: var(--success); animation-delay: 0.5s;"><i class="fa-solid fa-check-double"></i></div>
+                    <div class="flow-icon" style="color: var(--success);"><i class="fa-solid fa-check-double"></i></div>
                     Validar
                 </div>
                 <div class="flow-step">
-                    <div class="flow-icon" style="color: var(--accent); animation-delay: 1s;"><i class="fa-solid fa-fire"></i></div>
+                    <div class="flow-icon" style="color: var(--accent);"><i class="fa-solid fa-fire"></i></div>
                     Botijão
                 </div>
             </div>
@@ -282,21 +282,13 @@ function atualizarStatus() {
     const dia = agora.getDay();
     const hora = agora.getHours() + (agora.getMinutes()/60);
     const statusDiv = document.getElementById('status-loja');
-    
-    let aberto = false;
-    if (dia >= 1 && dia <= 6 && hora >= 9 && hora < 19.5) aberto = true;
-    else if (dia === 0 && hora >= 9 && hora < 12) aberto = true;
-    
+    let aberto = (dia >= 1 && dia <= 6 && hora >= 9 && hora < 19.5) || (dia === 0 && hora >= 9 && hora < 12);
     statusDiv.innerHTML = aberto ? "● DEPÓSITO ABERTO" : "○ FECHADO AGORA";
     statusDiv.className = aberto ? "aberto" : "fechado";
 }
 
 atualizarStatus();
 setInterval(atualizarStatus, 60000);
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-}
 </script>
 
 </body>
