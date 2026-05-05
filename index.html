@@ -4,6 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FAVICON -->
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
 <title>Maisa Gás</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,9 +42,12 @@ align-items:center;
 }
 
 .logo{
-width:50px;height:50px;border-radius:50%;
+width:50px;height:50px;
+border-radius:50%;
+object-fit:cover;
 }
 
+/* MENU */
 .menu button{
 background:none;
 border:none;
@@ -67,10 +77,6 @@ padding:30px;
 text-align:center;
 }
 
-.hero h2{
-font-size:26px;
-}
-
 /* CARD */
 .card{
 background:white;
@@ -80,11 +86,6 @@ max-width:400px;
 margin:20px auto;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
 }
 
 /* PREÇO */
@@ -105,11 +106,6 @@ width:100%;
 font-size:16px;
 cursor:pointer;
 margin-top:10px;
-transition:.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
 }
 
 /* GÁS POVO */
@@ -136,7 +132,7 @@ animation:andar 15s linear infinite;
 100%{left:120%;}
 }
 
-/* WHATS FIXO */
+/* WHATS */
 .float{
 position:fixed;
 right:20px;
@@ -193,15 +189,15 @@ cursor:pointer;
 <div id="home" class="screen active">
 
 <div class="hero">
-<h2>Entrega rápida de gás em Guaraqueçaba</h2>
-<p>Peça com segurança e rapidez</p>
+<h2>Entrega rápida de gás</h2>
+<p>Guaraqueçaba - PR</p>
 </div>
 
 <div class="card">
 <h3>Botijão P13</h3>
 <p class="price">R$ 132,00</p>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13" target="_blank">
 <button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir Gás</button>
 </a>
 
@@ -215,7 +211,6 @@ cursor:pointer;
 
 <div class="hero">
 <h2>Gás do Povo</h2>
-<p>Benefício social</p>
 </div>
 
 <div class="card">
@@ -231,7 +226,7 @@ cursor:pointer;
 🚚 Entrega: R$ 25
 </p>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20usar%20o%20Gás%20do%20Povo" target="_blank">
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20do%20povo" target="_blank">
 <button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
 </a>
 
@@ -247,7 +242,6 @@ cursor:pointer;
 function trocar(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
-window.scrollTo(0,0);
 }
 
 function toggleAudio(){
