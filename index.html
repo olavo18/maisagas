@@ -10,269 +10,253 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+:root{
+  --azul-900:#0b2a5b;
+  --azul-700:#0e3b85;
+  --azul-500:#1e63ff;
+  --azul-100:#eaf1ff;
+  --cinza-bg:#f4f7fb;
+  --verde:#25d366;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-font-family:'Poppins',sans-serif;
-background:#f4f7fb;
-color:#333;
+  font-family:'Poppins',sans-serif;
+  background:var(--cinza-bg);
+  color:#1f2937;
 }
 
-/* HEADER */
+/* HEADER FIXO */
 .header{
-background:#0a1f44;
-color:white;
-padding:15px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(90deg,var(--azul-900),var(--azul-700));
+  color:#fff;
+  padding:12px 18px;
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
 }
+.brand{display:flex; align-items:center; gap:10px;}
+.brand img{width:48px;height:48px;border-radius:50%; border:2px solid #fff;}
+.brand h1{font-size:18px; font-weight:700;}
 
-.header img{
-width:60px;height:60px;border-radius:50%;
-}
-
-.header h1{
-font-size:20px;
-}
-
-/* MENU PROFISSIONAL */
-.menu{
-display:flex;
-gap:25px;
-}
-
+.menu{display:flex; gap:24px;}
 .menu button{
-background:none;
-border:none;
-color:white;
-font-weight:600;
-cursor:pointer;
-position:relative;
+  background:none; border:none; color:#fff; font-weight:600;
+  cursor:pointer; position:relative; padding:6px 2px;
 }
-
 .menu button::after{
-content:'';
-position:absolute;
-width:0;
-height:2px;
-background:#25d366;
-left:0;
-bottom:-5px;
-transition:.3s;
+  content:''; position:absolute; left:0; bottom:-4px;
+  width:0; height:2px; background:var(--verde); transition:.25s;
 }
+.menu button:hover::after{width:100%;}
 
-.menu button:hover::after{
-width:100%;
-}
-
-/* SECTIONS */
-.screen{
-display:none;
-padding:30px 15px;
-}
-
-.active{display:block;}
+/* CONTAINER */
+.container{max-width:980px; margin:0 auto; padding:24px 16px 40px;}
 
 /* HERO */
 .hero{
-text-align:center;
-margin-top:20px;
+  background:linear-gradient(120deg,var(--azul-500),var(--azul-700));
+  color:#fff; border-radius:18px; padding:26px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
+.hero h2{font-size:26px; line-height:1.2;}
+.hero p{opacity:.9; margin-top:6px;}
+.hero .cta{margin-top:14px;}
+.hero .cta .btn{width:auto; padding:12px 16px;}
+.hero-illus{min-width:120px; opacity:.9;}
 
-.hero h2{
-font-size:28px;
-color:#0a1f44;
-}
+/* SECTIONS */
+.screen{display:none;}
+.active{display:block;}
 
-.hero p{
-opacity:0.7;
+.section-title{
+  font-size:22px; font-weight:700; color:var(--azul-900);
+  margin:22px 4px 10px;
 }
 
 /* CARD */
 .card{
-background:white;
-border-radius:20px;
-padding:25px;
-max-width:400px;
-margin:20px auto;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-text-align:center;
+  background:#fff; border-radius:18px; padding:22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  max-width:460px; margin:14px auto; text-align:center;
+  transition:.25s;
+}
+.card:hover{transform:translateY(-2px);}
+
+/* PRICE */
+.price{
+  font-size:34px; font-weight:800; color:var(--azul-900);
+  margin:6px 0 12px;
 }
 
-.total{
-font-size:32px;
-color:#0a1f44;
-font-weight:bold;
-}
-
-/* BOTÃO */
+/* BUTTON */
 .btn{
-background:#25d366;
-color:white;
-border:none;
-padding:15px;
-border-radius:10px;
-width:100%;
-font-size:16px;
-cursor:pointer;
-transition:.3s;
+  width:100%; border:none; border-radius:12px;
+  padding:14px; font-size:16px; font-weight:600;
+  background:var(--verde); color:#fff; cursor:pointer;
+  transition:.2s;
 }
-
-.btn:hover{
-background:#1ebe5d;
-transform:scale(1.05);
-}
+.btn:hover{transform:translateY(-1px) scale(1.02);}
 
 /* PIX */
 .pix{
-background:#f0f0f0;
-padding:10px;
-border-radius:10px;
-margin-top:10px;
+  background:#f1f5f9; border-radius:12px; padding:10px;
+  margin-top:10px; font-size:14px;
 }
 
-/* GÁS POVO */
+/* INFO BOX */
 .info{
-background:#eaf1ff;
-padding:10px;
-border-radius:10px;
-margin-bottom:10px;
-color:#0033cc;
+  background:var(--azul-100); color:#0b3aa6;
+  border-radius:12px; padding:10px; margin-bottom:10px; font-weight:600;
 }
 
-/* MOTO */
+/* GAS IMAGE */
+.gas-img{
+  width:100%; height:200px; object-fit:cover;
+  border-radius:12px; margin-bottom:10px;
+}
+
+/* MOTO (discreta) */
 .moto{
-position:fixed;
-bottom:20px;
-left:-200px;
-width:120px;
-animation:andar 12s linear infinite;
-opacity:0.7;
+  position:fixed; bottom:18px; left:-180px; width:110px;
+  opacity:.55; pointer-events:none;
+  animation:andar 14s linear infinite;
 }
+@keyframes andar{0%{left:-180px;}100%{left:120%;}}
 
-@keyframes andar{
-0%{left:-200px;}
-100%{left:120%;}
-}
-
-/* WHATS */
+/* FLOAT WHATS */
 .float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:22px;
+  position:fixed; right:18px; bottom:18px;
+  width:54px; height:54px; border-radius:50%;
+  background:var(--verde); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; box-shadow:0 10px 20px rgba(0,0,0,.25);
 }
 
-/* SOM */
+/* SOUND (reposicionado, não cobre conteúdo) */
 .sound{
-position:fixed;
-top:15px;
-right:15px;
-background:white;
-padding:8px;
-border-radius:8px;
-cursor:pointer;
+  position:fixed; right:18px; top:78px;
+  background:#fff; border-radius:10px; padding:8px 10px;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  cursor:pointer; font-size:14px;
 }
 
+/* FOOTER */
+.footer{
+  text-align:center; font-size:13px; color:#64748b;
+  margin-top:18px;
+}
 </style>
 
 </head>
 
 <body>
 
-<div class="header">
-<div style="display:flex;align-items:center;gap:10px;">
-<img src="logo.png">
-<h1>Maisa Gás</h1>
-</div>
+<header class="header">
+  <div class="brand">
+    <img src="logo.png" alt="Maisa Gás">
+    <h1>Maisa Gás</h1>
+  </div>
+  <nav class="menu">
+    <button onclick="trocar('home')">Início</button>
+    <button onclick="trocar('povo')">Gás do Povo</button>
+  </nav>
+</header>
 
-<div class="menu">
-<button onclick="trocar('home')">Início</button>
-<button onclick="trocar('povo')">Gás do Povo</button>
-</div>
-</div>
-
-<div class="sound" onclick="toggleAudio()">🔊</div>
-
+<div class="sound" onclick="toggleAudio()">🔊 Música</div>
 <audio id="musica" loop>
-<source src="musica.mp3">
+  <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<img src="moto.png" class="moto">
+<img src="moto.png" class="moto" alt="Entrega">
 
-<!-- HOME -->
+<main class="container">
 
-<div id="home" class="screen active">
+  <!-- HOME -->
 
+  <section id="home" class="screen active">
+
+```
 <div class="hero">
-<h2>Entrega rápida de gás em Guaraqueçaba</h2>
-<p>Peça seu gás com rapidez e segurança</p>
+  <div>
+    <h2>Entrega rápida de gás em Guaraqueçaba</h2>
+    <p>Peça seu botijão com segurança e agilidade.</p>
+    <div class="cta">
+      <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
+        <button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir agora</button>
+      </a>
+    </div>
+  </div>
+  <div class="hero-illus">
+    <i class="fa-solid fa-fire-flame-curved" style="font-size:64px;"></i>
+  </div>
 </div>
+
+<h3 class="section-title">Botijão P13</h3>
 
 <div class="card">
-<h3>Botijão P13</h3>
-<p class="total">R$ 132,00</p>
+  <div class="price">R$ 132,00</div>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13" target="_blank">
-<button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir pelo WhatsApp</button>
-</a>
+  <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
+    <button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir pelo WhatsApp</button>
+  </a>
 
-<div class="pix">
-PIX: <b>41992056141</b>
+  <div class="pix">
+    PIX: <b>41992056141</b>
+  </div>
 </div>
+```
 
-</div>
+  </section>
 
-</div>
+  <!-- GÁS DO POVO -->
 
-<!-- GÁS DO POVO -->
+  <section id="povo" class="screen">
 
-<div id="povo" class="screen">
-
-<div class="hero">
-<h2>Programa Gás do Povo</h2>
-<p>Benefício social para a população</p>
-</div>
+```
+<h3 class="section-title">Programa Gás do Povo</h3>
 
 <div class="card">
+  <img src="gas.png" class="gas-img" alt="Gás do Povo">
 
-<img src="gas.png" style="width:100%;border-radius:10px;margin-bottom:10px;">
+  <div class="info">
+    💙 Gás gratuito — retirada no depósito de gás
+  </div>
 
-<div class="info">
-Gás gratuito (retirada no depósito)
+  <p style="margin-bottom:10px;">
+    🏪 Retirada no depósito: <b>Grátis</b><br>
+    🚚 Entrega em casa: <b>R$ 25</b>
+  </p>
+
+  <a href="https://wa.me/5541992056141?text=Olá,%20quero%20usar%20o%20Gás%20do%20Povo.%20Retirada%20ou%20Entrega?" target="_blank">
+    <button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar benefício</button>
+  </a>
 </div>
+```
 
-<p>
-🏪 Retirada no depósito: Grátis<br>
-🚚 Entrega: R$ 25
-</p>
+  </section>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20do%20povo" target="_blank">
-<button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
-</a>
+  <div class="footer">
+    © Maisa Gás — Guaraqueçaba/PR
+  </div>
 
-</div>
-
-</div>
+</main>
 
 <a href="https://wa.me/5541992056141" class="float">
-<i class="fa-brands fa-whatsapp"></i>
+  <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
 function trocar(id){
-document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function toggleAudio(){
-let a=document.getElementById("musica");
-if(a.paused){a.play();}else{a.pause();}
+  const a=document.getElementById('musica');
+  if(a.paused){a.play();}else{a.pause();}
 }
 </script>
 
