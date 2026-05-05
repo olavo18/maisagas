@@ -57,15 +57,9 @@ cursor:pointer;
 .screen{
 display:none;
 padding:20px;
-animation:fade .5s;
 }
 
 .active{display:block;}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
 
 /* MOTO */
 .moto{
@@ -74,7 +68,6 @@ bottom:80px;
 left:-200px;
 width:140px;
 animation:andar 10s linear infinite;
-opacity:0.95;
 pointer-events:none;
 }
 
@@ -93,12 +86,6 @@ max-width:420px;
 margin:20px auto;
 box-shadow:0 15px 40px rgba(0,0,0,0.3);
 text-align:center;
-animation:subir .6s;
-}
-
-@keyframes subir{
-from{transform:translateY(40px);opacity:0;}
-to{transform:translateY(0);opacity:1;}
 }
 
 .total{
@@ -117,24 +104,8 @@ color:white;
 font-size:17px;
 margin-top:10px;
 cursor:pointer;
-transition:.3s;
 }
 
-.btn:hover{
-transform:scale(1.05);
-}
-
-/* DESTAQUE BENEFICIO */
-.beneficio{
-background:#e8f0ff;
-color:#0033cc;
-padding:10px;
-border-radius:10px;
-margin-bottom:10px;
-font-weight:600;
-}
-
-/* PIX */
 .pix{
 background:#f5f5f5;
 padding:12px;
@@ -149,7 +120,6 @@ margin-top:10px;
 border-radius:10px;
 }
 
-/* WHATS */
 .float{
 position:fixed;
 bottom:20px;
@@ -159,10 +129,8 @@ padding:16px;
 border-radius:50%;
 color:white;
 font-size:22px;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* CHAT */
 .chat{
 position:fixed;
 bottom:90px;
@@ -172,7 +140,6 @@ background:white;
 color:black;
 border-radius:15px;
 padding:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
 
 .badge{
@@ -183,6 +150,15 @@ border-radius:20px;
 font-size:13px;
 margin-bottom:10px;
 display:inline-block;
+}
+
+.beneficio{
+background:#e8f0ff;
+color:#0033cc;
+padding:10px;
+border-radius:10px;
+margin-bottom:10px;
+font-weight:600;
 }
 
 i{margin-right:8px;}
@@ -215,7 +191,7 @@ i{margin-right:8px;}
 <h2>🔥 Botijão P13</h2>
 <p class="total">R$ 132,00</p>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20pedir%201%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20pedir%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
 <button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir Agora</button>
 </a>
 
@@ -232,29 +208,23 @@ i{margin-right:8px;}
 <div id="povo" class="screen">
 <div class="card">
 
-<div style="background:#f5f5f5; padding:10px; border-radius:15px; margin-bottom:10px;">
-<img src="gas.png" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-</div>
+<img src="gas.png" style="width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
 
 <div class="beneficio">
-💙 Benefício do Governo — Gás GRATUITO
+💙 Gás GRATUITO pelo programa (você não paga o gás)
 </div>
 
 <h2>Gás do Povo</h2>
 
-<p style="font-size:14px; opacity:0.7;">
-Você não paga pelo gás, apenas taxa de entrega se quiser receber em casa.
-</p>
-
 <select id="tipo" onchange="calcular()">
-<option value="0">🏪 Retirada no local - Grátis</option>
-<option value="25">🚚 Entrega - R$25</option>
+<option value="retirada">🏪 Retirada no local - Grátis</option>
+<option value="entrega">🚚 Entrega em casa - R$25</option>
 </select>
 
 <p class="total" id="valor">Grátis</p>
 
 <a id="linkPovo" target="_blank">
-<button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar Benefício</button>
+<button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
 </a>
 
 </div>
@@ -287,13 +257,13 @@ function calcular(){
 let tipo=document.getElementById('tipo').value;
 let texto=document.getElementById('tipo').options[document.getElementById('tipo').selectedIndex].text;
 
-if(tipo == 0){
+if(tipo === "retirada"){
 document.getElementById('valor').innerText="Grátis";
 }else{
-document.getElementById('valor').innerText="R$ "+tipo+",00";
+document.getElementById('valor').innerText="R$ 25,00";
 }
 
-let msg="Olá, quero usar o Gás do Povo ("+texto+"). Nome: Endereço:";
+let msg="Olá, quero usar o Gás do Povo - "+texto+". Nome: Endereço:";
 document.getElementById('linkPovo').href="https://wa.me/5541992056141?text="+encodeURIComponent(msg);
 }
 
@@ -301,9 +271,8 @@ document.getElementById('pergunta').addEventListener("keyup",function(){
 let t=this.value.toLowerCase();
 let r=document.getElementById('resposta');
 
-if(t.includes("preço")) r.innerText="P13 custa R$132 e Gás do povo é gratuito";
-else if(t.includes("pix")) r.innerText="Você pode pagar via PIX 💳";
-else if(t.includes("entrega")) r.innerText="Entrega custa apenas R$25 no benefício";
+if(t.includes("preço")) r.innerText="O gás P13 custa R$132. No gás do povo é gratuito.";
+else if(t.includes("entrega")) r.innerText="Entrega no benefício custa R$25.";
 else r.innerText="";
 });
 
@@ -312,3 +281,4 @@ calcular();
 
 </body>
 </html>
+
