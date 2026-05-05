@@ -1,264 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maisa Gás e Água</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --azul: #0b2a5b;
-            --azul-claro: #1e63ff;
-            --verde: #25d366;
-            --bg: #f4f7fb;
-            --branco: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maisa Gás</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+--azul:#0b2a5b;
+--azul2:#1e63ff;
+--bg:#f4f7fb;
+--verde:#25d366;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:var(--bg);}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+.header{
+background:linear-gradient(90deg,var(--azul),#0e3b85);
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo{width:50px;height:50px;border-radius:50%;object-fit:cover;}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            color: #333;
-        }
+/* MENU */
+.menu button{
+background:none;border:none;color:white;
+margin-left:15px;font-weight:600;cursor:pointer;
+position:relative;
+}
+.menu button.active-tab{border-bottom: 2px solid var(--verde);}
 
-        /* HEADER */
-        .header {
-            background: linear-gradient(90deg, var(--azul), #0e3b85);
-            color: white;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* HERO */
+.hero{
+background:linear-gradient(120deg,var(--azul2),#0044cc);
+color:white;padding:30px;text-align:center;
+}
 
-        .logo-box { display: flex; align-items: center; gap: 10px; }
-        .logo-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid white; }
+/* CARD */
+.card{
+background:white;border-radius:20px;padding:25px;
+max-width:400px;margin:20px auto;text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+.price{font-size:34px;font-weight:bold;color:var(--azul);}
+.btn{
+background:var(--verde);color:white;border:none;
+padding:15px;border-radius:12px;width:100%;
+font-size:16px;cursor:pointer;margin-top:10px;
+}
 
-        .menu button {
-            background: none;
-            border: none;
-            color: #ccc;
-            margin-left: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+/* AJUSTE PARA NÃO CORTAR FOTOS */
+.img-produto{
+width:100%;
+height:220px;
+object-fit:contain; /* Garante que a foto da água apareça inteira */
+border-radius:10px;
+margin-bottom:10px;
+}
 
-        .menu button.active { color: white; border-bottom: 2px solid var(--verde); }
+.info{background:#eaf1ff;padding:10px;border-radius:10px;margin-bottom:10px;color:#0033cc;}
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(120deg, var(--azul-claro), #0044cc);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-        }
+/* MOTO */
+.moto{
+position:fixed;bottom:20px;left:-200px;width:100px;
+opacity:0.5;animation:andar 15s linear infinite;
+}
+@keyframes andar{0%{left:-200px;}100%{left:120%;}}
 
-        /* CONTENT */
-        .container { padding: 20px; max-width: 500px; margin: auto; }
+.float{position:fixed;right:20px;bottom:20px;background:var(--verde);color:white;padding:15px;border-radius:50%;font-size:22px;}
+.sound{position:fixed;top:80px;right:20px;background:white;padding:8px;border-radius:10px;cursor:pointer;}
 
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            text-align: center;
-            margin-bottom: 30px;
-            animation: slideUp 0.5s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .img-placeholder {
-            width: 100%;
-            height: 200px;
-            background: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #aaa;
-        }
-
-        .card-body { padding: 25px; }
-        .card-body h3 { color: var(--azul); font-size: 1.5rem; margin-bottom: 10px; }
-        .price { font-size: 32px; font-weight: bold; color: var(--azul-claro); margin: 10px 0; }
-
-        .btn-whats {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--verde);
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-        .btn-whats:hover { transform: scale(1.02); filter: brightness(1.1); }
-
-        .info-tag {
-            background: #eaf1ff;
-            color: #0033cc;
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 13px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        /* MOTO ANIMATION */
-        .moto {
-            position: fixed;
-            bottom: 20px;
-            left: -150px;
-            width: 90px;
-            opacity: 0.4;
-            z-index: -1;
-            animation: drive 15s linear infinite;
-        }
-
-        @keyframes drive {
-            0% { left: -150px; }
-            100% { left: 120%; }
-        }
-
-        /* SCREENS */
-        .screen { display: none; }
-        .screen.active { display: block; }
-
-        /* FLOAT BUTTONS */
-        .sound-toggle {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: white;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            cursor: pointer;
-            z-index: 100;
-        }
-    </style>
+.screen{display:none;}
+.active{display:block;}
+</style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo-box">
-        <img src="logo.png" class="logo-img" alt="Logo">
-        <h2 style="font-size: 1.1rem;">Maisa Gás e Água</h2>
+    <div style="display:flex;align-items:center;gap:10px;">
+        <img src="logo.png" class="logo">
+        <h2>Maisa Gás</h2>
     </div>
     <div class="menu">
-        <button id="nav-gas" class="active" onclick="trocar('gas')">Gás</button>
-        <button id="nav-agua" onclick="trocar('agua')">Água</button>
-        <button id="nav-povo" onclick="trocar('povo')">Subsídio</button>
+        <button id="nav-home" class="active-tab" onclick="trocar('home')">Início</button>
+        <button id="nav-povo" onclick="trocar('povo')">Gás do Povo</button>
+        <button id="nav-agua" onclick="trocar('agua')">Água Mineral</button>
     </div>
 </div>
 
-<div class="sound-toggle" onclick="toggleAudio()">🔊</div>
+<div class="sound" onclick="toggleAudio()">🔊</div>
 <audio id="musica" loop><source src="musica.mp3"></audio>
-
 <img src="moto.png" class="moto">
 
-<!-- ABA GÁS -->
-<div id="gas" class="screen active">
+<div id="home" class="screen active">
     <div class="hero">
-        <h2>Botijão P13</h2>
-        <p>Entrega rápida em Guaraqueçaba</p>
+        <h2>Entrega rápida de gás</h2>
+        <p>Guaraqueçaba - PR</p>
     </div>
-    <div class="container">
-        <div class="card">
-            <img src="gas.png" alt="Botijão de Gás" style="width: 100%; height: 220px; object-fit: cover;">
-            <div class="card-body">
-                <span class="info-tag">Entrega Imediata 🚚</span>
-                <h3>Gás de Cozinha P13</h3>
-                <p class="price">R$ 132,00</p>
-                <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13" class="btn-whats">
-                    Pedir Gás Agora
-                </a>
-            </div>
-        </div>
+    <div class="card">
+        <img src="gas.png" class="img-produto">
+        <h3>Botijão P13</h3>
+        <p class="price">R$ 132,00</p>
+        <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13" target="_blank">
+            <button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir Gás</button>
+        </a>
     </div>
 </div>
 
-<!-- ABA ÁGUA (NOVA) -->
-<div id="agua" class="screen">
-    <div class="hero">
-        <h2>Água Mineral Font Life</h2>
-        <p>Mais saúde para sua família</p>
-    </div>
-    <div class="container">
-        <div class="card">
-            <!-- LOCAL PARA SUA FOTO DA FONT LIFE -->
-            <img src="agua_font_life.png" alt="Água Mineral Font Life" style="width: 100%; height: 220px; object-fit: cover; background: #d0e8ff;">
-            <div class="card-body">
-                <span class="info-tag">Pureza Garantida 💧</span>
-                <h3>Galão 20 Litros</h3>
-                <p class="price">R$ 00,00</p> <!-- Mude aqui quando tiver o valor -->
-                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">Retornável e Pronta Entrega</p>
-                <a href="https://wa.me/5541992056141?text=Olá,%20quero%20encomendar%20água%20Font%20Life" class="btn-whats" style="background: #1e88e5;">
-                    Pedir Água
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ABA SUBSÍDIO -->
 <div id="povo" class="screen">
     <div class="hero">
         <h2>Gás do Povo</h2>
-        <p>Retirada no Depósito</p>
     </div>
-    <div class="container">
-        <div class="card">
-            <div class="img-placeholder">FOTO DO DEPÓSITO</div>
-            <div class="card-body">
-                <span class="info-tag" style="background: #e8f5e9; color: #2e7d32;">Benefício Social ✅</span>
-                <h3>Custo Zero (Retirada)</h3>
-                <p class="price">Grátis</p>
-                <p style="font-size: 14px; margin-bottom: 15px;">Taxa de Entrega: R$ 25,00</p>
-                <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20do%20povo" class="btn-whats">
-                    Solicitar
-                </a>
-            </div>
-        </div>
+    <div class="card">
+        <img src="gas_povo.png" class="img-produto">
+        <div class="info">💙 Gás gratuito (retirada no depósito)</div>
+        <p>🏪 Retirada: Grátis<br>🚚 Entrega: R$ 25</p>
+        <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20do%20povo" target="_blank">
+            <button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
+        </a>
     </div>
 </div>
 
+<div id="agua" class="screen">
+    <div class="hero">
+        <h2>Água Mineral</h2>
+        <p>Font Life</p>
+    </div>
+    <div class="card">
+        <img src="agua_font_life.png" class="img-produto">
+        <h3>Galão 20L</h3>
+        <p class="price">R$ 00,00</p>
+        <div class="info">💧 Água leve e pura para sua casa</div>
+        <a href="https://wa.me/5541992056141?text=Olá,%20quero%20água%20mineral" target="_blank">
+            <button class="btn" style="background:#1e63ff;"><i class="fa-brands fa-whatsapp"></i> Pedir Água</button>
+        </a>
+    </div>
+</div>
+
+<a href="https://wa.me/5541992056141" class="float"><i class="fa-brands fa-whatsapp"></i></a>
+
 <script>
-    function trocar(id){
-        // Esconde todas as telas
-        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-        // Mostra a tela selecionada
-        document.getElementById(id).classList.add('active');
-        
-        // Atualiza estilo do menu
-        document.querySelectorAll('.menu button').forEach(b => b.classList.remove('active'));
-        document.getElementById('nav-' + id).classList.add('active');
-        
-        window.scrollTo(0,0);
-    }
+function trocar(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    
+    document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active-tab'));
+    document.getElementById('nav-' + id).classList.add('active-tab');
+}
 
-    function toggleAudio(){
-        let a = document.getElementById("musica");
-        if(a.paused){ a.play(); } else { a.pause(); }
-    }
+function toggleAudio(){
+    let a=document.getElementById("musica");
+    if(a.paused){a.play();}else{a.pause();}
+}
 </script>
-
 </body>
 </html>
