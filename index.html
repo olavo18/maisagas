@@ -16,6 +16,7 @@ body{
 font-family:'Poppins',sans-serif;
 background:linear-gradient(135deg,#0a1f44,#0066ff);
 color:white;
+overflow-x:hidden;
 }
 
 .header{
@@ -31,15 +32,6 @@ border-radius:50%;
 border:4px solid white;
 box-shadow:0 5px 25px rgba(0,0,0,0.4);
 margin-bottom:10px;
-}
-
-.header h1{
-font-size:26px;
-font-weight:700;
-}
-
-.header p{
-opacity:0.8;
 }
 
 nav{
@@ -63,6 +55,7 @@ cursor:pointer;
 display:none;
 padding:20px;
 animation:fade .5s;
+position:relative;
 }
 
 .active{display:block;}
@@ -72,6 +65,21 @@ from{opacity:0;transform:translateY(20px);}
 to{opacity:1;transform:translateY(0);}
 }
 
+/* ANIMAÇÃO MOTO */
+.moto{
+position:absolute;
+bottom:10px;
+left:-150px;
+width:120px;
+animation:andar 8s linear infinite;
+}
+
+@keyframes andar{
+0%{left:-150px;}
+100%{left:110%;}
+}
+
+/* CARD */
 .card{
 background:white;
 color:black;
@@ -81,6 +89,8 @@ max-width:420px;
 margin:20px auto;
 box-shadow:0 15px 40px rgba(0,0,0,0.3);
 text-align:center;
+z-index:2;
+position:relative;
 }
 
 .total{
@@ -128,7 +138,6 @@ background:#25d366;
 padding:16px;
 border-radius:50%;
 color:white;
-text-decoration:none;
 font-size:22px;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
@@ -145,14 +154,6 @@ padding:10px;
 box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
 
-.chat input{
-width:100%;
-padding:8px;
-margin-top:5px;
-border-radius:8px;
-border:1px solid #ccc;
-}
-
 .badge{
 background:#0066ff;
 color:white;
@@ -163,9 +164,7 @@ margin-bottom:10px;
 display:inline-block;
 }
 
-i{
-margin-right:8px;
-}
+i{margin-right:8px;}
 </style>
 
 </head>
@@ -186,14 +185,16 @@ margin-right:8px;
 <!-- HOME -->
 
 <div id="home" class="screen active">
-<div class="card">
 
+<img src="moto.png" class="moto">
+
+<div class="card">
 <span class="badge">Entrega rápida 🚚</span>
 
 <h2>🔥 Botijão P13</h2>
 <p class="total">R$ 132,00</p>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20pedir%201%20gás%20P13.%20Nome:%20Endereço:%20Forma%20de%20pagamento:" target="_blank">
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20pedir%201%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
 <button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir Agora</button>
 </a>
 
@@ -201,13 +202,16 @@ margin-right:8px;
 💳 PIX: <b>41992056141</b><br>
 <button class="btn" onclick="copiarPix()">Copiar PIX</button>
 </div>
-
 </div>
+
 </div>
 
 <!-- GÁS DO POVO -->
 
 <div id="povo" class="screen">
+
+<img src="moto.png" class="moto">
+
 <div class="card">
 
 <div style="background:#f5f5f5; padding:10px; border-radius:15px; margin-bottom:10px;">
@@ -217,10 +221,6 @@ margin-right:8px;
 <span class="badge">Programa 💙</span>
 
 <h2>Gás do Povo</h2>
-
-<p style="font-size:14px; opacity:0.7;">
-Programa com gás mais barato para população
-</p>
 
 <select id="tipo" onchange="calcular()">
 <option value="101">🏪 Retirada - R$101</option>
@@ -277,7 +277,7 @@ let r=document.getElementById('resposta');
 
 if(t.includes("preço")) r.innerText="P13 custa R$132 e Gás do povo a partir de R$101";
 else if(t.includes("pix")) r.innerText="Você pode pagar via PIX 💳";
-else if(t.includes("entrega")) r.innerText="Entrega custa R$25 no gás do povo";
+else if(t.includes("entrega")) r.innerText="Entrega custa R$25";
 else r.innerText="";
 });
 
