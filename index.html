@@ -149,6 +149,20 @@ body {
 
 @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
+/* DESTAQUE DO CARTÃO DO GÁS DO POVO */
+.card-beneficio-area {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.img-cartao-beneficio {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .address-bar { margin-top: 20px; font-size: 12px; color: #718096; border-top: 1px dashed #e2e8f0; padding-top: 15px; }
 
 .screen { display: none; }
@@ -215,6 +229,10 @@ body {
 
     <section id="povo" class="screen">
         <div class="card">
+            <div class="card-beneficio-area">
+                <img src="cartão.png" class="img-cartao-beneficio" alt="Cartão Gás do Povo">
+            </div>
+
             <img src="gas.png" class="img-produto" style="height: 150px;">
             <h3>Gás do Povo</h3>
             
