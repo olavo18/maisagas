@@ -8,150 +8,212 @@
     <link rel="manifest" href="manifest.json">
     
     <meta name="theme-color" content="#0b2a5b">
-    <title>Maisa Gás e Água</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>Maisa Gás e Água - Premium UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         :root {
             --primary: #0b2a5b;
             --accent: #1e63ff;
+            --accent-glow: rgba(30, 99, 255, 0.5);
             --success: #00d084;
-            --bg: #f0f4f9;
+            --success-glow: rgba(0, 208, 132, 0.5);
+            --bg: #f4f7fc;
             --white: #ffffff;
-            --gradient: linear-gradient(135deg, #0b2a5b 0%, #1e63ff 100%);
+            --text: #2d3748;
+            --text-light: #718096;
+            --gradient-primary: linear-gradient(135deg, #0b2a5b 0%, #1e63ff 100%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: var(--bg); 
-            color: #2d3748;
-            padding-bottom: 130px;
+            color: var(--text);
+            padding-bottom: 140px;
+            overflow-x: hidden;
+            /* Fundo Dinâmico Sutil */
+            background-image: radial-gradient(circle at 10% 20%, rgba(30, 99, 255, 0.05) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 208, 132, 0.05) 0%, transparent 20%);
         }
 
-        /* HEADER */
+        /* HEADER ULTRA MODERNO */
         .header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 18px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
-        .logo-area { display: flex; align-items: center; gap: 10px; }
-        .logo { width: 42px; height: 42px; border-radius: 12px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .logo:hover { transform: rotate(5deg) scale(1.05); }
+
+        .header h1 { font-size: 19px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+        .header p { font-size: 11px; color: var(--accent); font-weight: 700; }
 
         #status-loja {
             font-size: 11px;
             font-weight: 800;
-            padding: 6px 12px;
+            padding: 7px 15px;
             border-radius: 20px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .aberto { background: #e6fffa; color: #00a389; }
+        .aberto { background: #e6fffa; color: #00a389; box-shadow: 0 0 10px rgba(0, 208, 132, 0.1); }
         .fechado { background: #fff5f5; color: #e53e3e; }
 
-        .dot { height: 7px; width: 7px; border-radius: 50%; background-color: currentColor; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .dot { height: 8px; width: 8px; border-radius: 50%; background-color: currentColor; animation: pulse 1.8s infinite; }
+        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
 
-        /* MENU INFERIOR */
+        /* MENU INFERIOR NEON GLASS */
         .menu-inferior {
-            position: fixed; bottom: 20px; left: 15px; right: 15px;
-            background: rgba(11, 42, 91, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 24px;
+            position: fixed; bottom: 25px; left: 20px; right: 20px;
+            background: rgba(11, 42, 91, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
             display: flex;
             justify-content: space-around;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(11, 42, 91, 0.3);
+            padding: 12px;
+            box-shadow: 0 15px 35px rgba(11, 42, 91, 0.3), 0 0 15px rgba(92, 225, 255, 0.1);
             z-index: 2000;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .menu-item {
             background: none; border: none; color: rgba(255, 255, 255, 0.4);
-            display: flex; flex-direction: column; align-items: center; gap: 4px;
-            font-size: 10px; font-weight: 700; cursor: pointer; transition: 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 5px;
+            font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .menu-item.active-tab { color: #fff; transform: translateY(-5px); }
-        .menu-item.active-tab i { color: #5ce1ff; text-shadow: 0 0 10px rgba(92, 225, 255, 0.5); }
+        /* Hover no Menu */
+        .menu-item:hover { color: rgba(255, 255, 255, 0.8); transform: translateY(-3px); }
+        .menu-item:hover i { transform: scale(1.1); }
+
+        /* Aba Ativa Neon */
+        .menu-item.active-tab { color: #fff; transform: translateY(-8px); }
+        .menu-item.active-tab i { color: #5ce1ff; text-shadow: 0 0 15px #5ce1ff, 0 0 30px #5ce1ff; transform: scale(1.1); }
 
         /* CONTAINER E CARDS */
-        .container { padding: 15px; max-width: 450px; margin: 0 auto; }
+        .container { padding: 25px 20px; max-width: 500px; margin: 0 auto; }
+        
         .card {
             background: var(--white);
-            border-radius: 30px;
-            padding: 25px;
+            border-radius: 35px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0,0,0,0.01);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
+
+        /* Hover no Card */
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06); }
+
+        .card h2 { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 12px; letter-spacing: -0.5px; }
 
         .img-produto {
-            width: 100%; height: 180px; object-fit: contain;
-            margin-bottom: 15px;
-            animation: flutuar 3s infinite ease-in-out;
+            width: 100%; height: 210px; object-fit: contain;
+            margin-bottom: 20px;
+            animation: flutuarProduto 4s infinite ease-in-out;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
         }
 
-        /* ANIMAÇÃO DE FLUTUAR (RECUPERADA) */
-        @keyframes flutuar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        /* Animação Flutuar Produto */
+        @keyframes flutuarProduto {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
         }
 
-        .price-text { font-size: 38px; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
+        .price-text { font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 20px; letter-spacing: -1px; }
 
-        /* BOTÕES */
+        /* BOTÕES PREMIUM & HOVER */
         .btn-main {
-            background: var(--gradient);
+            background: var(--gradient-primary);
             color: white;
-            padding: 18px;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 22px;
             width: 100%;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 800;
             text-decoration: none;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            box-shadow: 0 10px 25px var(--accent-glow);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; overflow: hidden;
         }
-        .btn-main:active { transform: scale(0.96); }
+
+        /* Hover no Botão Principal */
+        .btn-main:hover { 
+            transform: translateY(-4px) scale(1.02); 
+            box-shadow: 0 15px 35px var(--accent-glow), 0 0 20px rgba(92, 225, 255, 0.3);
+        }
+        .btn-main:active { transform: translateY(-1px) scale(0.99); }
 
         .btn-mapa {
             background: #f8faff;
-            color: #718096;
-            padding: 14px;
-            border-radius: 15px;
+            color: var(--text-light);
+            padding: 16px;
+            border-radius: 18px;
             width: 100%;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 700;
             text-decoration: none;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            margin-top: 15px;
-            border: 1px solid #edf2f7;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            margin-top: 18px;
+            border: 2px solid #edf2f7;
+            transition: all 0.3s;
+        }
+        
+        /* Hover no Botão Mapa */
+        .btn-mapa:hover { background: #edf2f7; color: var(--primary); border-color: #e2e8f0; transform: translateY(-2px); }
+
+        /* GÁS DO POVO ESPECÍFICO */
+        .info-list { text-align: left; background: #f8faff; padding: 22px; border-radius: 24px; margin-bottom: 22px; border: 1px solid #edf2f7; }
+        
+        /* Itens da Lista com Animação em Cascata */
+        .info-list p { 
+            font-size: 15px; margin-bottom: 12px; color: var(--text); display: flex; align-items: center; gap: 12px;
+            opacity: 0; transform: translateX(15px);
+        }
+        .info-list p b { color: var(--primary); }
+
+        /* Classes de Animação Cascata (ativadas via JS) */
+        .active .info-list p { animation: slideInInfo 0.5s ease-out forwards; }
+        .active .info-list p:nth-child(1) { animation-delay: 0.1s; }
+        .active .info-list p:nth-child(2) { animation-delay: 0.2s; }
+        .active .info-list p:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideInInfo {
+            to { opacity: 1; transform: translateX(0); }
         }
 
-        /* GÁS DO POVO */
-        .info-list { text-align: left; background: #f8faff; padding: 15px; border-radius: 20px; margin-bottom: 15px; }
-        .info-list p { font-size: 14px; margin-bottom: 8px; color: #4a5568; }
+        .img-cartao { width: 100%; border-radius: 18px; margin-bottom: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); transition: 0.3s; }
+        .img-cartao:hover { transform: scale(1.03) rotate(-1deg); }
 
-        .img-cartao { width: 100%; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .img-gas-povo { height: 110px; width: auto; margin-bottom: 15px; animation: flutuar 3s infinite ease-in-out; }
+        .img-gas-povo { height: 130px; width: auto; margin-bottom: 18px; animation: flutuarProduto 4s infinite ease-in-out; }
 
-        /* ANIMAÇÃO DE ENTRADA (RECUPERADA) */
+        /* TELAS E ANIMAÇÃO DE ENTRADA */
         .screen { display: none; }
-        .active { display: block; animation: slideUp 0.5s ease-out; }
-        @keyframes slideUp { 
-            from { opacity: 0; transform: translateY(20px); } 
-            to { opacity: 1; transform: translateY(0); } 
+        .active { display: block; animation: screenFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        
+        @keyframes screenFadeIn { 
+            from { opacity: 0; transform: translateY(25px) scale(0.98); } 
+            to { opacity: 1; transform: translateY(0) scale(1); } 
         }
     </style>
 </head>
@@ -159,10 +221,10 @@
 
 <header class="header">
     <div class="logo-area">
-        <img src="logo.png" class="logo">
+        <img src="logo.png" class="logo" alt="Logo Maisa Gás">
         <div>
-            <h1 style="font-size: 16px; font-weight: 800; color: var(--primary);">Maisa Gás</h1>
-            <p style="font-size: 10px; color: var(--accent); font-weight: 700;">Guaraqueçaba/PR</p>
+            <h1>Maisa Gás</h1>
+            <p>Guaraqueçaba/PR</p>
         </div>
     </div>
     <div id="status-loja">...</div>
@@ -170,13 +232,13 @@
 
 <nav class="menu-inferior">
     <button id="nav-home" class="menu-item active-tab" onclick="trocar('home')">
-        <i class="fa-solid fa-fire" style="font-size: 20px;"></i><span>Gás P13</span>
+        <i class="fa-solid fa-fire-glow" style="font-size: 22px;"></i><span>P13</span>
     </button>
     <button id="nav-agua" class="menu-item" onclick="trocar('agua')">
-        <i class="fa-solid fa-droplet" style="font-size: 20px;"></i><span>Água</span>
+        <i class="fa-solid fa-droplet" style="font-size: 22px;"></i><span>Água</span>
     </button>
     <button id="nav-povo" class="menu-item" onclick="trocar('povo')">
-        <i class="fa-solid fa-credit-card" style="font-size: 20px;"></i><span>Gás do Povo</span>
+        <i class="fa-solid fa-id-card-clip" style="font-size: 22px;"></i><span>Gás Povo</span>
     </button>
 </nav>
 
@@ -184,13 +246,13 @@
 
     <section id="home" class="screen active">
         <div class="card">
-            <h2 style="font-size: 22px; margin-bottom: 10px;">Botijão P13</h2>
-            <img src="gas_inicio.png" class="img-produto">
+            <h2>Botijão P13</h2>
+            <img src="gas_inicio.png" class="img-produto" alt="Botijão de Gás">
             <div class="price-text">R$ 132,00</div>
             <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20um%20Gás%20P13" class="btn-main">
                 <i class="fa-brands fa-whatsapp"></i> PEDIR AGORA
             </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-mapa">
+            <a href="https://maps.app.goo.gl/vP6zC5vV6zC5vV6z5" target="_blank" class="btn-mapa">
                 <i class="fa-solid fa-location-dot"></i> R. Superagui, 810 - VER MAPA
             </a>
         </div>
@@ -198,13 +260,13 @@
 
     <section id="agua" class="screen">
         <div class="card">
-            <h2 style="font-size: 22px; margin-bottom: 10px;">Água Font Life</h2>
-            <img src="agua_font_life.png" class="img-produto">
+            <h2>Água Font Life</h2>
+            <img src="agua_font_life.png" class="img-produto" alt="Água Mineral">
             <div class="price-text" style="color: var(--accent);">R$ 26,00</div>
-            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-main" style="background: var(--accent);">
+            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-main" style="background: var(--accent); box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);">
                 <i class="fa-solid fa-truck-droplet"></i> PEDIR ÁGUA
             </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-mapa">
+            <a href="https://maps.app.goo.gl/vP6zC5vV6zC5vV6z5" target="_blank" class="btn-mapa">
                 <i class="fa-solid fa-location-dot"></i> R. Superagui, 810 - VER MAPA
             </a>
         </div>
@@ -212,22 +274,22 @@
 
     <section id="povo" class="screen">
         <div class="card">
-            <img src="cartão.png" class="img-cartao">
-            <img src="gas.png" class="img-gas-povo">
+            <img src="cartão.png" class="img-cartao" alt="Cartão do Benefício">
+            <img src="gas.png" class="img-gas-povo" alt="Botijão Gás do Povo">
             
-            <h2 style="font-size: 22px; margin-bottom: 15px;">Programa Gás do Povo</h2>
+            <h2>Programa Gás do Povo</h2>
             
             <div class="info-list">
-                <p><b>💳 Cartão:</b> Pague com seu cartão do benefício.</p>
-                <p><b>🏠 Retirar No Depósito:</b> Sem taxa de entrega.</p>
-                <p><b>🚚 Entrega:</b> Taxa de apenas R$ 25,00.</p>
+                <p><span>💳</span> <b>Cartão:</b> Pague com seu cartão do benefício.</p>
+                <p><span>🏠</span> <b>Retirar No Depósito:</b> Sem taxa de entrega.</p>
+                <p><span>🚚</span> <b>Entrega:</b> Taxa de apenas R$ 25,00.</p>
             </div>
 
             <a href="https://wa.me/5541992056141?text=Dúvida%20Gás%20do%20Povo" class="btn-main">
                 <i class="fa-solid fa-comment-dots"></i> TIRAR DÚVIDAS
             </a>
 
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-mapa">
+            <a href="https://maps.app.goo.gl/vP6zC5vV6zC5vV6z5" target="_blank" class="btn-mapa">
                 <i class="fa-solid fa-route"></i> R. Superagui, 810 - COMO CHEGAR
             </a>
         </div>
@@ -237,27 +299,45 @@
 
 <script>
 function trocar(id){
+    // Remove active e adiciona active na nova tela
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    
+    // Atualiza menu ativo
     document.querySelectorAll('.menu-item').forEach(b => b.classList.remove('active-tab'));
     document.getElementById('nav-' + id).classList.add('active-tab');
+    
+    // Rola para o topo de forma suave
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function atualizarStatus() {
     const agora = new Date();
-    const dia = agora.getDay();
+    const dia = agora.getDay(); // 0=Dom, 1=Seg, ..., 6=Sab
     const hora = agora.getHours() + (agora.getMinutes()/60);
     const statusDiv = document.getElementById('status-loja');
     
+    // Seg a Sab: 9h as 19:30 | Dom: 9h as 12h
     let aberto = (dia >= 1 && dia <= 6 && hora >= 9 && hora < 19.5) || (dia === 0 && hora >= 9 && hora < 12);
     
-    statusDiv.innerHTML = aberto ? '<span class="dot"></span> ABERTO' : 'FECHADO';
-    statusDiv.className = aberto ? "aberto" : "fechado";
+    if (aberto) {
+        statusDiv.innerHTML = '<span class="dot"></span> ABERTO';
+        statusDiv.className = "aberto";
+    } else {
+        statusDiv.innerHTML = 'FECHADO AGORA';
+        statusDiv.className = "fechado";
+    }
 }
 
 atualizarStatus();
-setInterval(atualizarStatus, 60000);
+setInterval(atualizarStatus, 60000); // Atualiza a cada 1 minuto
+
+// Previne menu contextual no toque longo (melhora UX no celular)
+window.oncontextmenu = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+};
 </script>
 
 </body>
