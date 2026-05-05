@@ -19,6 +19,7 @@
 --azul2:#1e63ff;
 --bg:#f4f7fb;
 --verde:#25d366;
+--vermelho: #ff4d4d;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:var(--bg);padding-bottom: 60px;}
@@ -48,6 +49,19 @@ background:linear-gradient(120deg,var(--azul2),#0044cc);
 color:white;padding:30px;text-align:center;
 }
 
+/* STATUS FUNCIONAMENTO */
+#status-loja {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
+}
+.aberto { background: var(--verde); }
+.fechado { background: var(--vermelho); }
+
 /* CARD */
 .card{
 background:white;border-radius:20px;padding:25px;
@@ -55,12 +69,25 @@ max-width:400px;margin:20px auto;text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 .price{font-size:34px;font-weight:bold;color:var(--azul);}
-.price-info{font-size:14px;color:#666;margin-bottom:10px;}
 
 .btn{
 background:var(--verde);color:white;border:none;
 padding:15px;border-radius:12px;width:100%;
 font-size:16px;cursor:pointer;margin-top:10px;
+transition: 0.3s;
+}
+.btn:hover { transform: scale(1.03); }
+
+.btn-rota {
+    background: var(--azul2);
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .img-produto{
@@ -71,9 +98,6 @@ border-radius:10px;
 margin-bottom:10px;
 }
 
-.info{background:#eaf1ff;padding:10px;border-radius:10px;margin-bottom:10px;color:#0033cc;}
-
-/* FOOTER / HORÁRIOS */
 .footer-info{
 background: white;
 padding: 20px;
@@ -82,9 +106,7 @@ border-top: 2px solid #eee;
 text-align: center;
 font-size: 14px;
 }
-.footer-info h4{color: var(--azul); margin-bottom: 10px;}
 
-/* MOTO */
 .moto{
 position:fixed;bottom:20px;left:-200px;width:100px;
 opacity:0.5;animation:andar 15s linear infinite;
@@ -92,8 +114,6 @@ opacity:0.5;animation:andar 15s linear infinite;
 @keyframes andar{0%{left:-200px;}100%{left:120%;}}
 
 .float{position:fixed;right:20px;bottom:20px;background:var(--verde);color:white;padding:15px;border-radius:50%;font-size:22px;z-index: 100;}
-.sound{position:fixed;top:80px;right:20px;background:white;padding:8px;border-radius:10px;cursor:pointer;z-index: 100;}
-
 .screen{display:none;}
 .active{display:block;}
 </style>
@@ -112,14 +132,12 @@ opacity:0.5;animation:andar 15s linear infinite;
     </div>
 </div>
 
-<div class="sound" onclick="toggleAudio()">🔊</div>
-<audio id="musica" loop><source src="musica.mp3"></audio>
 <img src="moto.png" class="moto">
 
 <div id="home" class="screen active">
     <div class="hero">
         <h2>Botijão P13</h2>
-        <p>Entrega rápida - Guaraqueçaba</p>
+        <div id="status-loja">Verificando...</div>
     </div>
     <div class="card">
         <img src="gas_inicio.png" class="img-produto">
@@ -137,7 +155,7 @@ opacity:0.5;animation:andar 15s linear infinite;
     </div>
     <div class="card">
         <img src="gas.png" class="img-produto">
-        <div class="info">💙 Gás gratuito (retirada no depósito)</div>
+        <div style="background:#eaf1ff;padding:10px;border-radius:10px;margin-bottom:10px;color:#0033cc;">💙 Gás gratuito (retirada)</div>
         <p>🏪 Retirada: Grátis<br>🚚 Entrega: R$ 25</p>
         <a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20do%20povo" target="_blank">
             <button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
@@ -154,8 +172,7 @@ opacity:0.5;animation:andar 15s linear infinite;
         <img src="agua_font_life.png" class="img-produto">
         <h3>Galão 20L</h3>
         <p class="price">R$ 26,00</p>
-        <p class="price-info">(Com troca de galão vazio)</p>
-        <div class="info">Sem galão para troca: R$ 49,00</div>
+        <p style="font-size:13px; color:#666">Sem galão vazio: R$ 49,00</p>
         <a href="https://wa.me/5541992056141?text=Olá,%20quero%20água%20mineral" target="_blank">
             <button class="btn" style="background:#1e63ff;"><i class="fa-brands fa-whatsapp"></i> Pedir Água</button>
         </a>
@@ -165,10 +182,12 @@ opacity:0.5;animation:andar 15s linear infinite;
 <div class="footer-info">
     <h4>📍 Local de Retirada</h4>
     <p>R. Superagui, 810 - Guaraqueçaba, PR</p>
-    <br>
-    <h4>⏰ Horário de Funcionamento</h4>
-    <p>Segunda a Sábado: 09:00 às 19:30</p>
-    <p>Domingo: 09:00 às 12:00</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Superagui+810+Guaraquecaba" target="_blank" class="btn-rota">
+        <i class="fa-solid fa-location-dot"></i> Ver Rota no Maps
+    </a>
+    <br><br>
+    <h4>⏰ Horários</h4>
+    <p>Seg a Sáb: 09:00 - 19:30 | Dom: 09:00 - 12:00</p>
 </div>
 
 <a href="https://wa.me/5541992056141" class="float"><i class="fa-brands fa-whatsapp"></i></a>
@@ -177,15 +196,35 @@ opacity:0.5;animation:andar 15s linear infinite;
 function trocar(id){
     document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    
     document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active-tab'));
     document.getElementById('nav-' + id).classList.add('active-tab');
 }
 
-function toggleAudio(){
-    let a=document.getElementById("musica");
-    if(a.paused){a.play();}else{a.pause();}
+// LOGICA DE HORARIO
+function atualizarStatus() {
+    const agora = new Date();
+    const dia = agora.getDay(); // 0=Dom, 1=Seg...
+    const hora = agora.getHours() + (agora.getMinutes()/60);
+    const statusDiv = document.getElementById('status-loja');
+    
+    let aberto = false;
+    if (dia >= 1 && dia <= 6) { // Seg a Sáb
+        if (hora >= 9 && hora < 19.5) aberto = true;
+    } else if (dia === 0) { // Dom
+        if (hora >= 9 && hora < 12) aberto = true;
+    }
+    
+    if (aberto) {
+        statusDiv.innerHTML = "● ABERTO AGORA";
+        statusDiv.className = "aberto";
+    } else {
+        statusDiv.innerHTML = "○ FECHADO NO MOMENTO";
+        statusDiv.className = "fechado";
+    }
 }
+
+atualizarStatus();
+setInterval(atualizarStatus, 60000); // Atualiza a cada minuto
 </script>
 </body>
 </html>
