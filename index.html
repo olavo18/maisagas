@@ -30,8 +30,6 @@ body {
     background-color: var(--bg); 
     color: #1a1a1a;
     padding-bottom: 110px;
-    background-image: radial-gradient(circle at top right, #e0e7ff 0%, transparent 20%), 
-                      radial-gradient(circle at bottom left, #e0e7ff 0%, transparent 20%);
 }
 
 /* HEADER GLASSMORPHISM */
@@ -46,7 +44,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo-area { display: flex; align-items: center; gap: 12px; }
@@ -62,12 +60,10 @@ body {
     padding: 6px 12px;
     border-radius: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     color: var(--white);
-    transition: 0.3s;
 }
-.aberto { background: var(--success); box-shadow: 0 0 15px rgba(37, 211, 102, 0.3); }
-.fechado { background: var(--danger); box-shadow: 0 0 15px rgba(255, 77, 77, 0.3); }
+.aberto { background: var(--success); box-shadow: 0 0 10px rgba(37, 211, 102, 0.2); }
+.fechado { background: var(--danger); box-shadow: 0 0 10px rgba(255, 77, 77, 0.2); }
 
 /* MENU PREMIUM */
 .menu-inferior {
@@ -88,7 +84,7 @@ body {
 }
 
 .menu-item i { font-size: 22px; }
-.menu-item.active-tab { color: var(--white); transform: translateY(-5px); }
+.menu-item.active-tab { color: var(--white); transform: translateY(-3px); }
 .menu-item.active-tab i { color: #5ce1ff; }
 
 /* CARDS ESTILOSOS */
@@ -100,18 +96,17 @@ body {
     max-width: 450px;
     margin: 0 auto 30px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.01);
 }
 
 .img-produto {
-    width: 100%; height: 220px;
+    width: 100%; height: 200px;
     object-fit: contain;
     margin-bottom: 25px;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
 }
 
-.card h3 { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.card h3 { font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
 .card p.desc { font-size: 14px; color: #718096; margin-bottom: 20px; }
 
 .price { 
@@ -119,7 +114,7 @@ body {
     background: #f1f5f9;
     padding: 10px 20px;
     border-radius: 15px;
-    font-size: 36px; 
+    font-size: 32px; 
     font-weight: 800; 
     color: var(--primary);
     margin-bottom: 25px;
@@ -140,11 +135,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
-    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.1);
 }
-
-.btn-w:active { transform: scale(0.96); }
 
 /* GÁS DO POVO DESIGN */
 .info-box {
@@ -155,34 +147,24 @@ body {
     margin-bottom: 25px;
 }
 
-.info-row { display: flex; gap: 12px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
-.info-row i { color: var(--accent); font-size: 18px; }
+.info-row { display: flex; gap: 12px; margin-bottom: 12px; font-size: 13px; line-height: 1.5; }
+.info-row i { color: var(--accent); font-size: 16px; margin-top: 3px; }
 
-/* ANIMAÇÃO DE FLUXO */
-.flow { display: flex; justify-content: center; gap: 30px; margin: 30px 0; }
-.flow-step { position: relative; text-align: center; font-size: 12px; font-weight: 700; color: var(--primary); }
+/* ANIMAÇÃO DE FLUXO (CORRIGIDO PARA CARTÃO) */
+.flow { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
+.flow-step { position: relative; text-align: center; font-size: 11px; font-weight: 700; color: var(--primary); }
 .flow-icon { 
     width: 50px; height: 50px; background: #fff; border-radius: 15px;
     display: flex; align-items: center; justify-content: center;
     font-size: 22px; margin-bottom: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    animation: flutuar 3s infinite ease-in-out;
 }
+
+@keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 /* TELAS */
-.screen { display: none; animation: fadeIn 0.4s ease-out; }
+.screen { display: none; }
 .active { display: block; }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-.pulse { animation: pulse 2s infinite; }
-
 </style>
 </head>
 <body>
@@ -191,8 +173,8 @@ body {
     <div class="logo-area">
         <img src="logo.png" class="logo">
         <div>
-            <h2 style="font-size: 18px; font-weight: 800; color: var(--primary);">Maisa Gás</h2>
-            <p style="font-size: 11px; font-weight: 600; color: var(--accent);">Guaraqueçaba - PR</p>
+            <h2 style="font-size: 16px; font-weight: 800; color: var(--primary);">Maisa Gás</h2>
+            <p style="font-size: 10px; font-weight: 600; color: var(--accent);">Guaraqueçaba - PR</p>
         </div>
     </div>
     <div id="status-loja">Carregando...</div>
@@ -218,7 +200,7 @@ body {
             <p class="desc">Entrega imediata em toda a sede</p>
             <img src="gas_inicio.png" class="img-produto">
             <div class="price">R$ 132,00</div>
-            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20um%20Gás%20P13" target="_blank" class="btn-w pulse">
+            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20um%20Gás%20P13" target="_blank" class="btn-w">
                 <i class="fa-brands fa-whatsapp"></i> PEDIR AGORA
             </a>
         </div>
@@ -230,7 +212,7 @@ body {
             <p class="desc">Galão de 20 Litros - Ultra Pureza</p>
             <img src="agua_font_life.png" class="img-produto">
             <div class="price">R$ 26,00</div>
-            <p style="font-size: 13px; color: #888; margin-bottom: 25px;">Sem galão para troca: R$ 49,00</p>
+            <p style="font-size: 12px; color: #888; margin-bottom: 25px;">Sem galão para troca: R$ 49,00</p>
             <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água%20Mineral" target="_blank" class="btn-w" style="background: var(--accent);">
                 <i class="fa-brands fa-whatsapp"></i> PEDIR ÁGUA
             </a>
@@ -239,33 +221,39 @@ body {
 
     <section id="povo" class="screen">
         <div class="card">
-            <img src="gas.png" class="img-produto" style="height: 120px;">
+            <img src="gas.png" class="img-produto" style="height: 100px;">
             <h3>Gás do Povo</h3>
-            <p class="desc">Programa de Benefício Social</p>
+            <p class="desc">Programa de Benefício Municipal</p>
             
             <div class="info-box">
                 <div class="info-row">
                     <i class="fa-solid fa-circle-check"></i>
-                    <p><b>Retirada:</b> Grátis na loja (R. Superagui, 810)</p>
+                    <p><b>Cartão do Benefício:</b> O valor do gás é pago com o seu cartão do programa social.</p>
                 </div>
                 <div class="info-row">
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <p><b>Entrega:</b> Taxa de apenas R$ 25,00</p>
+                    <i class="fa-solid fa-store"></i>
+
+http://googleusercontent.com/map_location_reference/1
+                    <p><b>Retirada (R$ 0):</b> Traga o cartão e galão vazio na loja ([R. Superagui, 810](http://googleusercontent.com/map_location_reference/0).</p>
+                </div>
+                <div class="info-row">
+                    <i class="fa-solid fa-truck"></i>
+                    <p><b>Entrega (R$ 25):</b> Pague a taxa de entrega em casa.</p>
                 </div>
             </div>
 
             <div class="flow">
                 <div class="flow-step">
-                    <div class="flow-icon"><i class="fa-solid fa-id-card"></i></div>
-                    Docs
+                    <div class="flow-icon"><i class="fa-solid fa-credit-card"></i></div>
+                    Cartão
                 </div>
                 <div class="flow-step">
-                    <div class="flow-icon" style="color: var(--success);"><i class="fa-solid fa-check"></i></div>
-                    Ok!
+                    <div class="flow-icon" style="color: var(--success); animation-delay: 0.5s;"><i class="fa-solid fa-check-double"></i></div>
+                    Pagar
                 </div>
                 <div class="flow-step">
-                    <div class="flow-icon" style="color: var(--accent);"><i class="fa-solid fa-box-open"></i></div>
-                    Gás
+                    <div class="flow-icon" style="color: var(--accent); animation-delay: 1s;"><i class="fa-solid fa-fire"></i></div>
+                    Seu Gás
                 </div>
             </div>
 
