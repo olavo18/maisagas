@@ -14,55 +14,141 @@
 
 body{
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#0a1f44,#0066ff);
-color:white;
-overflow-x:hidden;
+background:#f4f7fb;
+color:#333;
 }
 
 /* HEADER */
-.header{text-align:center;padding:30px 15px;}
-
-.logo{
-width:140px;height:140px;object-fit:cover;
-border-radius:50%;border:4px solid white;
-box-shadow:0 5px 25px rgba(0,0,0,0.4);
+.header{
+background:#0a1f44;
+color:white;
+padding:15px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
-/* MENU */
-nav{
-display:flex;justify-content:center;gap:20px;
-background:rgba(255,255,255,0.1);
-padding:10px;backdrop-filter:blur(10px);
+.header img{
+width:60px;height:60px;border-radius:50%;
 }
 
-/* TELAS */
-.screen{display:none;padding:20px;}
+.header h1{
+font-size:20px;
+}
+
+/* MENU PROFISSIONAL */
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu button{
+background:none;
+border:none;
+color:white;
+font-weight:600;
+cursor:pointer;
+position:relative;
+}
+
+.menu button::after{
+content:'';
+position:absolute;
+width:0;
+height:2px;
+background:#25d366;
+left:0;
+bottom:-5px;
+transition:.3s;
+}
+
+.menu button:hover::after{
+width:100%;
+}
+
+/* SECTIONS */
+.screen{
+display:none;
+padding:30px 15px;
+}
+
 .active{display:block;}
+
+/* HERO */
+.hero{
+text-align:center;
+margin-top:20px;
+}
+
+.hero h2{
+font-size:28px;
+color:#0a1f44;
+}
+
+.hero p{
+opacity:0.7;
+}
+
+/* CARD */
+.card{
+background:white;
+border-radius:20px;
+padding:25px;
+max-width:400px;
+margin:20px auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.total{
+font-size:32px;
+color:#0a1f44;
+font-weight:bold;
+}
+
+/* BOTÃO */
+.btn{
+background:#25d366;
+color:white;
+border:none;
+padding:15px;
+border-radius:10px;
+width:100%;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+background:#1ebe5d;
+transform:scale(1.05);
+}
+
+/* PIX */
+.pix{
+background:#f0f0f0;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+}
+
+/* GÁS POVO */
+.info{
+background:#eaf1ff;
+padding:10px;
+border-radius:10px;
+margin-bottom:10px;
+color:#0033cc;
+}
 
 /* MOTO */
 .moto{
 position:fixed;
-bottom:80px;
+bottom:20px;
 left:-200px;
-width:140px;
-animation:andar 10s linear infinite;
-z-index:1;
-}
-
-/* FUMAÇA */
-.fumaca{
-position:fixed;
-bottom:95px;
-left:0;
-width:20px;height:20px;
-background:rgba(255,255,255,0.5);
-border-radius:50%;
-animation:fuma 2s infinite;
-}
-
-@keyframes fuma{
-0%{transform:scale(0.5);opacity:0.7;}
-100%{transform:scale(2);opacity:0;}
+width:120px;
+animation:andar 12s linear infinite;
+opacity:0.7;
 }
 
 @keyframes andar{
@@ -70,158 +156,108 @@ animation:fuma 2s infinite;
 100%{left:120%;}
 }
 
-/* CARD */
-.card{
-background:white;color:black;
-border-radius:20px;padding:20px;
-max-width:420px;margin:20px auto;
-box-shadow:0 15px 40px rgba(0,0,0,0.3);
-text-align:center;
-animation:fade .6s;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-.total{font-size:34px;font-weight:bold;color:#0a1f44;}
-
-.btn{
-width:100%;padding:15px;border:none;
-border-radius:12px;background:#25d366;
-color:white;font-size:17px;margin-top:10px;
-cursor:pointer;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
-
-.pix{background:#f5f5f5;padding:12px;border-radius:10px;margin-top:10px;}
-
-select{width:100%;padding:10px;margin-top:10px;border-radius:10px;}
-
+/* WHATS */
 .float{
-position:fixed;bottom:20px;right:20px;
-background:#25d366;padding:16px;
-border-radius:50%;font-size:22px;
-}
-
-.chat{
-position:fixed;bottom:90px;right:20px;
-width:260px;background:white;color:black;
-border-radius:15px;padding:10px;
-}
-
-.badge{
-background:#0066ff;color:white;
-padding:6px 12px;border-radius:20px;
-font-size:13px;margin-bottom:10px;
-display:inline-block;
-}
-
-.beneficio{
-background:#e8f0ff;color:#0033cc;
-padding:10px;border-radius:10px;
-margin-bottom:10px;font-weight:600;
-}
-
-.sound-btn{
 position:fixed;
-top:20px;right:20px;
-background:#fff;color:#000;
-padding:10px;border-radius:10px;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+}
+
+/* SOM */
+.sound{
+position:fixed;
+top:15px;
+right:15px;
+background:white;
+padding:8px;
+border-radius:8px;
 cursor:pointer;
 }
 
-i{margin-right:8px;}
 </style>
 
 </head>
 
 <body>
 
-<div class="sound-btn" onclick="toggleAudio()">🔊 Música</div>
-
-<audio id="musica" loop>
-<source src="musica.mp3" type="audio/mpeg">
-</audio>
-
 <div class="header">
-<img src="logo.png" class="logo">
+<div style="display:flex;align-items:center;gap:10px;">
+<img src="logo.png">
 <h1>Maisa Gás</h1>
-<p>Guaraqueçaba - PR</p>
 </div>
 
-<nav>
-<button onclick="trocar('home')">🏠 Início</button>
-<button onclick="trocar('povo')">💙 Gás do Povo</button>
-</nav>
+<div class="menu">
+<button onclick="trocar('home')">Início</button>
+<button onclick="trocar('povo')">Gás do Povo</button>
+</div>
+</div>
+
+<div class="sound" onclick="toggleAudio()">🔊</div>
+
+<audio id="musica" loop>
+<source src="musica.mp3">
+</audio>
 
 <img src="moto.png" class="moto">
 
 <!-- HOME -->
 
 <div id="home" class="screen active">
+
+<div class="hero">
+<h2>Entrega rápida de gás em Guaraqueçaba</h2>
+<p>Peça seu gás com rapidez e segurança</p>
+</div>
+
 <div class="card">
-
-<span class="badge">Entrega rápida 🚚</span>
-
-<h2>🔥 Botijão P13</h2>
+<h3>Botijão P13</h3>
 <p class="total">R$ 132,00</p>
 
-<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13.%20Nome:%20Endereço:" target="_blank">
-<button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir Agora</button>
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20P13" target="_blank">
+<button class="btn"><i class="fa-brands fa-whatsapp"></i> Pedir pelo WhatsApp</button>
 </a>
 
 <div class="pix">
-💳 PIX: <b>41992056141</b><br>
-<button class="btn" onclick="copiarPix()">Copiar PIX</button>
+PIX: <b>41992056141</b>
 </div>
 
 </div>
+
 </div>
 
 <!-- GÁS DO POVO -->
 
 <div id="povo" class="screen">
-<div class="card">
 
-<img src="gas.png" style="width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:10px;">
-
-<div class="beneficio">
-💙 Gás GRATUITO (retirada no depósito de gás)
+<div class="hero">
+<h2>Programa Gás do Povo</h2>
+<p>Benefício social para a população</p>
 </div>
 
-<h2>Gás do Povo</h2>
+<div class="card">
 
-<p style="font-size:14px;">
-🏪 Retirada no depósito: GRÁTIS<br>
-🚚 Entrega em casa: R$25
+<img src="gas.png" style="width:100%;border-radius:10px;margin-bottom:10px;">
+
+<div class="info">
+Gás gratuito (retirada no depósito)
+</div>
+
+<p>
+🏪 Retirada no depósito: Grátis<br>
+🚚 Entrega: R$ 25
 </p>
 
-<select id="tipo" onchange="calcular()">
-<option value="retirada">Retirada no depósito</option>
-<option value="entrega">Entrega em casa</option>
-</select>
-
-<p class="total" id="valor">Grátis</p>
-
-<a id="linkPovo" target="_blank">
+<a href="https://wa.me/5541992056141?text=Olá,%20quero%20gás%20do%20povo" target="_blank">
 <button class="btn"><i class="fa-brands fa-whatsapp"></i> Solicitar</button>
 </a>
 
 </div>
-</div>
 
-<div class="chat">
-<b>🤖 Ajuda</b>
-<input type="text" id="pergunta" placeholder="Digite...">
-<div id="resposta"></div>
 </div>
 
 <a href="https://wa.me/5541992056141" class="float">
@@ -234,35 +270,14 @@ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 }
 
-function copiarPix(){
-navigator.clipboard.writeText("41992056141");
-alert("PIX copiado!");
-}
-
-function calcular(){
-let tipo=document.getElementById('tipo').value;
-let msg="";
-
-if(tipo==="retirada"){
-document.getElementById('valor').innerText="Grátis";
-msg="Quero retirar gás do povo no depósito";
-}else{
-document.getElementById('valor').innerText="R$ 25,00";
-msg="Quero gás do povo com entrega";
-}
-
-document.getElementById('linkPovo').href="https://wa.me/5541992056141?text="+encodeURIComponent(msg);
-}
-
 function toggleAudio(){
-let audio=document.getElementById("musica");
-if(audio.paused){audio.play();}else{audio.pause();}
+let a=document.getElementById("musica");
+if(a.paused){a.play();}else{a.pause();}
 }
-
-calcular();
 </script>
 
 </body>
 </html>
+
 
 
