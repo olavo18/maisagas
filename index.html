@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
+    <title>Maisa Gás e Água - Peça em Guaraqueçaba</title>
+    <meta name="description" content="Peça seu gás P13 ou Água Mineral Font Life na Maisa Gás. Aceitamos Cartão Gás do Povo. Entrega rápida em Guaraqueçaba.">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="manifest" href="manifest.json">
     
-    <meta name="theme-color" content="#0b2a5b">
-    <title>Maisa Gás e Água - Premium UI</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -16,281 +15,222 @@
         :root {
             --primary: #0b2a5b;
             --accent: #1e63ff;
-            --accent-glow: rgba(30, 99, 255, 0.5);
             --success: #00d084;
-            --success-glow: rgba(0, 208, 132, 0.5);
-            --bg: #f4f7fc;
-            --white: #ffffff;
-            --text: #2d3748;
-            --text-light: #718096;
-            --gradient-primary: linear-gradient(135deg, #0b2a5b 0%, #1e63ff 100%);
+            --bg-gradient: linear-gradient(180deg, #f8faff 0%, #e2e8f0 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.06);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text);
+            background: var(--bg-gradient); 
+            min-height: 100vh;
+            color: #1a202c;
             padding-bottom: 140px;
-            overflow-x: hidden;
-            /* Fundo Dinâmico Sutil */
-            background-image: radial-gradient(circle at 10% 20%, rgba(30, 99, 255, 0.05) 0%, transparent 20%),
-                              radial-gradient(circle at 90% 80%, rgba(0, 208, 132, 0.05) 0%, transparent 20%);
         }
 
-        /* HEADER ULTRA MODERNO */
+        /* HEADER PREMIUM */
         .header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 18px 25px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
         }
 
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo { width: 45px; height: 45px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .logo:hover { transform: rotate(5deg) scale(1.05); }
-
-        .header h1 { font-size: 19px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
-        .header p { font-size: 11px; color: var(--accent); font-weight: 700; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo { width: 48px; height: 48px; border-radius: 14px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
         #status-loja {
             font-size: 11px;
             font-weight: 800;
-            padding: 7px 15px;
-            border-radius: 20px;
+            padding: 8px 16px;
+            border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 7px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            gap: 8px;
+            transition: 0.5s;
         }
-        .aberto { background: #e6fffa; color: #00a389; box-shadow: 0 0 10px rgba(0, 208, 132, 0.1); }
-        .fechado { background: #fff5f5; color: #e53e3e; }
+        .aberto { background: #c6f6d5; color: #22543d; box-shadow: 0 0 20px rgba(72, 187, 120, 0.2); }
+        .fechado { background: #fed7d7; color: #822727; }
 
-        .dot { height: 8px; width: 8px; border-radius: 50%; background-color: currentColor; animation: pulse 1.8s infinite; }
-        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+        .dot { height: 8px; width: 8px; border-radius: 50%; background-color: currentColor; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
 
-        /* MENU INFERIOR NEON GLASS */
-        .menu-inferior {
-            position: fixed; bottom: 25px; left: 20px; right: 20px;
-            background: rgba(11, 42, 91, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 28px;
-            display: flex;
-            justify-content: space-around;
-            padding: 12px;
-            box-shadow: 0 15px 35px rgba(11, 42, 91, 0.3), 0 0 15px rgba(92, 225, 255, 0.1);
-            z-index: 2000;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .menu-item {
-            background: none; border: none; color: rgba(255, 255, 255, 0.4);
-            display: flex; flex-direction: column; align-items: center; gap: 5px;
-            font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        /* Hover no Menu */
-        .menu-item:hover { color: rgba(255, 255, 255, 0.8); transform: translateY(-3px); }
-        .menu-item:hover i { transform: scale(1.1); }
-
-        /* Aba Ativa Neon */
-        .menu-item.active-tab { color: #fff; transform: translateY(-8px); }
-        .menu-item.active-tab i { color: #5ce1ff; text-shadow: 0 0 15px #5ce1ff, 0 0 30px #5ce1ff; transform: scale(1.1); }
-
-        /* CONTAINER E CARDS */
-        .container { padding: 25px 20px; max-width: 500px; margin: 0 auto; }
-        
+        /* CARDS MODERNOS */
+        .container { padding: 20px; max-width: 480px; margin: 0 auto; }
         .card {
-            background: var(--white);
+            background: white;
             border-radius: 35px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0,0,0,0.01);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255,255,255,0.7);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        .card:hover { transform: translateY(-8px); }
 
-        /* Hover no Card */
-        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06); }
-
-        .card h2 { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 12px; letter-spacing: -0.5px; }
-
-        .img-produto {
-            width: 100%; height: 210px; object-fit: contain;
+        .img-main {
+            width: 100%; height: 220px; object-fit: contain;
             margin-bottom: 20px;
-            animation: flutuarProduto 4s infinite ease-in-out;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+            animation: float 4s ease-in-out infinite;
         }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* Animação Flutuar Produto */
-        @keyframes flutuarProduto {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1deg); }
-        }
+        .price-text { font-size: 48px; font-weight: 800; color: var(--primary); margin: 10px 0; letter-spacing: -2px; }
 
-        .price-text { font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 20px; letter-spacing: -1px; }
-
-        /* BOTÕES PREMIUM & HOVER */
-        .btn-main {
-            background: var(--gradient-primary);
+        /* BOTÕES DE ALTA CONVERSÃO */
+        .btn-whats {
+            background: linear-gradient(135deg, #0b2a5b 0%, #1e63ff 100%);
             color: white;
-            padding: 20px;
-            border-radius: 22px;
+            padding: 22px;
+            border-radius: 24px;
             width: 100%;
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 800;
             text-decoration: none;
             display: flex; align-items: center; justify-content: center; gap: 12px;
-            box-shadow: 0 10px 25px var(--accent-glow);
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(30, 99, 255, 0.3);
+            transition: 0.3s;
         }
+        .btn-whats:hover { transform: scale(1.03); filter: brightness(1.1); box-shadow: 0 15px 35px rgba(30, 99, 255, 0.4); }
 
-        /* Hover no Botão Principal */
-        .btn-main:hover { 
-            transform: translateY(-4px) scale(1.02); 
-            box-shadow: 0 15px 35px var(--accent-glow), 0 0 20px rgba(92, 225, 255, 0.3);
-        }
-        .btn-main:active { transform: translateY(-1px) scale(0.99); }
-
-        .btn-mapa {
-            background: #f8faff;
-            color: var(--text-light);
+        .btn-map {
+            margin-top: 15px;
+            background: #f1f5f9;
+            color: #475569;
             padding: 16px;
-            border-radius: 18px;
+            border-radius: 20px;
             width: 100%;
-            font-size: 14px;
-            font-weight: 700;
             text-decoration: none;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            margin-top: 18px;
-            border: 2px solid #edf2f7;
-            transition: all 0.3s;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
         }
-        
-        /* Hover no Botão Mapa */
-        .btn-mapa:hover { background: #edf2f7; color: var(--primary); border-color: #e2e8f0; transform: translateY(-2px); }
+        .btn-map:hover { background: #e2e8f0; color: var(--primary); }
 
-        /* GÁS DO POVO ESPECÍFICO */
-        .info-list { text-align: left; background: #f8faff; padding: 22px; border-radius: 24px; margin-bottom: 22px; border: 1px solid #edf2f7; }
-        
-        /* Itens da Lista com Animação em Cascata */
-        .info-list p { 
-            font-size: 15px; margin-bottom: 12px; color: var(--text); display: flex; align-items: center; gap: 12px;
-            opacity: 0; transform: translateX(15px);
+        /* LISTA GÁS DO POVO ANIMADA */
+        .info-povo { 
+            text-align: left; background: #f8fafc; padding: 20px; border-radius: 25px; margin-bottom: 25px;
+            border: 1px solid #f1f5f9;
         }
-        .info-list p b { color: var(--primary); }
-
-        /* Classes de Animação Cascata (ativadas via JS) */
-        .active .info-list p { animation: slideInInfo 0.5s ease-out forwards; }
-        .active .info-list p:nth-child(1) { animation-delay: 0.1s; }
-        .active .info-list p:nth-child(2) { animation-delay: 0.2s; }
-        .active .info-list p:nth-child(3) { animation-delay: 0.3s; }
-
-        @keyframes slideInInfo {
-            to { opacity: 1; transform: translateX(0); }
+        .info-povo p { 
+            font-size: 15px; margin-bottom: 12px; color: #334155; display: flex; align-items: center; gap: 12px;
+            transition: 0.3s;
         }
+        .info-povo p:hover { transform: translateX(5px); color: var(--accent); }
 
-        .img-cartao { width: 100%; border-radius: 18px; margin-bottom: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); transition: 0.3s; }
-        .img-cartao:hover { transform: scale(1.03) rotate(-1deg); }
+        /* MENU INFERIOR MOBILE APP STYLE */
+        .nav-bar {
+            position: fixed; bottom: 25px; left: 20px; right: 20px;
+            background: rgba(11, 42, 91, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px;
+            border-radius: 30px;
+            display: flex; justify-content: space-around;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            z-index: 2000;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-item {
+            color: rgba(255,255,255,0.5); text-decoration: none; text-align: center;
+            font-size: 10px; font-weight: 700; transition: 0.4s;
+        }
+        .nav-item i { font-size: 24px; margin-bottom: 4px; display: block; }
+        .nav-item.active { color: #fff; transform: translateY(-10px); }
+        .nav-item.active i { color: #5ce1ff; text-shadow: 0 0 15px rgba(92, 225, 255, 0.6); }
 
-        .img-gas-povo { height: 130px; width: auto; margin-bottom: 18px; animation: flutuarProduto 4s infinite ease-in-out; }
-
-        /* TELAS E ANIMAÇÃO DE ENTRADA */
         .screen { display: none; }
-        .active { display: block; animation: screenFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-        
-        @keyframes screenFadeIn { 
-            from { opacity: 0; transform: translateY(25px) scale(0.98); } 
-            to { opacity: 1; transform: translateY(0) scale(1); } 
-        }
+        .active-screen { display: block; animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <header class="header">
     <div class="logo-area">
-        <img src="logo.png" class="logo" alt="Logo Maisa Gás">
+        <img src="logo.png" class="logo">
         <div>
             <h1>Maisa Gás</h1>
-            <p>Guaraqueçaba/PR</p>
+            <p>Guaraqueçaba • PR</p>
         </div>
     </div>
     <div id="status-loja">...</div>
 </header>
 
-<nav class="menu-inferior">
-    <button id="nav-home" class="menu-item active-tab" onclick="trocar('home')">
-        <i class="fa-solid fa-fire-glow" style="font-size: 22px;"></i><span>P13</span>
-    </button>
-    <button id="nav-agua" class="menu-item" onclick="trocar('agua')">
-        <i class="fa-solid fa-droplet" style="font-size: 22px;"></i><span>Água</span>
-    </button>
-    <button id="nav-povo" class="menu-item" onclick="trocar('povo')">
-        <i class="fa-solid fa-id-card-clip" style="font-size: 22px;"></i><span>Gás Povo</span>
-    </button>
+<nav class="nav-bar">
+    <a href="javascript:void(0)" onclick="aba('p13')" id="tab-p13" class="nav-item active">
+        <i class="fa-solid fa-fire"></i>GÁS P13
+    </a>
+    <a href="javascript:void(0)" onclick="aba('agua')" id="tab-agua" class="nav-item">
+        <i class="fa-solid fa-droplet"></i>ÁGUA
+    </a>
+    <a href="javascript:void(0)" onclick="aba('povo')" id="tab-povo" class="nav-item">
+        <i class="fa-solid fa-address-card"></i>GÁS POVO
+    </a>
 </nav>
 
 <main class="container">
 
-    <section id="home" class="screen active">
+    <section id="p13" class="screen active-screen">
         <div class="card">
-            <h2>Botijão P13</h2>
-            <img src="gas_inicio.png" class="img-produto" alt="Botijão de Gás">
+            <span style="font-weight: 800; color: var(--accent); font-size: 12px; letter-spacing: 1px;">RESIDENCIAL</span>
+            <h2 style="margin-top: 5px;">Botijão P13</h2>
+            <img src="gas_inicio.png" class="img-main">
             <div class="price-text">R$ 132,00</div>
-            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20um%20Gás%20P13" class="btn-main">
+            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Gás%20P13" class="btn-whats">
                 <i class="fa-brands fa-whatsapp"></i> PEDIR AGORA
             </a>
-            <a href="https://maps.app.goo.gl/vP6zC5vV6zC5vV6z5" target="_blank" class="btn-mapa">
-                <i class="fa-solid fa-location-dot"></i> R. Superagui, 810 - VER MAPA
+            <a href="https://maps.google.com/?q=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-map">
+                <i class="fa-solid fa-location-dot"></i> R. Superagui, 810
             </a>
         </div>
     </section>
 
     <section id="agua" class="screen">
         <div class="card">
-            <h2>Água Font Life</h2>
-            <img src="agua_font_life.png" class="img-produto" alt="Água Mineral">
-            <div class="price-text" style="color: var(--accent);">R$ 26,00</div>
-            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-main" style="background: var(--accent); box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);">
+            <span style="font-weight: 800; color: #00bcd4; font-size: 12px; letter-spacing: 1px;">MINERAL</span>
+            <h2 style="margin-top: 5px;">Água Font Life</h2>
+            <img src="agua_font_life.png" class="img-main">
+            <div class="price-text" style="color: #00bcd4;">R$ 26,00</div>
+            <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-whats" style="background: #00bcd4; box-shadow: 0 10px 25px rgba(0,188,212,0.3);">
                 <i class="fa-solid fa-truck-droplet"></i> PEDIR ÁGUA
             </a>
-            <a href="https://maps.app.goo.gl/vP6zC5vV6zC5vV6z5" target="_blank" class="btn-mapa">
-                <i class="fa-solid fa-location-dot"></i> R. Superagui, 810 - VER MAPA
+            <a href="https://maps.google.com/?q=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-map">
+                <i class="fa-solid fa-location-dot"></i> R. Superagui, 810
             </a>
         </div>
     </section>
 
     <section id="povo" class="screen">
         <div class="card">
-            <img src="cartão.png" class="img-cartao" alt="Cartão do Benefício">
-            <img src="gas.png" class="img-gas-povo" alt="Botijão Gás do Povo">
+            <img src="cartão.png" style="width: 100%; border-radius: 20px; margin-bottom: 15px;">
+            <img src="gas.png" class="img-main" style="height: 120px;">
+            <h2>Gás do Povo</h2>
             
-            <h2>Programa Gás do Povo</h2>
-            
-            <div class="info-list">
-                <p><span>💳</span> <b>Cartão:</b> Pague com seu cartão do benefício.</p>
-                <p><span>🏠</span> <b>Retirar No Depósito:</b> Sem taxa de entrega.</p>
-                <p><span>🚚</span> <b>Entrega:</b> Taxa de apenas R$ 25,00.</p>
+            <div class="info-povo">
+                <p><span>💳</span> <b>Cartão:</b> Pague com o benefício.</p>
+                <p><span>🏠</span> <b>Retirar No Depósito:</b> Sem taxa.</p>
+                <p><span>🚚</span> <b>Entrega:</b> Taxa de R$ 25,00.</p>
             </div>
 
-            <a href="https://wa.me/5541992056141?text=Dúvida%20Gás%20do%20Povo" class="btn-main">
+            <a href="https://wa.me/5541992056141?text=Dúvida%20sobre%20Gás%20do%20Povo" class="btn-whats">
                 <i class="fa-solid fa-comment-dots"></i> TIRAR DÚVIDAS
             </a>
-
-            <a href="https://maps.app.goo.gl/vP6zC5vV6zC5vV6z5" target="_blank" class="btn-mapa">
-                <i class="fa-solid fa-route"></i> R. Superagui, 810 - COMO CHEGAR
+            <a href="https://maps.google.com/?q=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-map">
+                <i class="fa-solid fa-route"></i> COMO CHEGAR
             </a>
         </div>
     </section>
@@ -298,46 +238,31 @@
 </main>
 
 <script>
-function trocar(id){
-    // Remove active e adiciona active na nova tela
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+function aba(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+    document.getElementById(id).classList.add('active-screen');
     
-    // Atualiza menu ativo
-    document.querySelectorAll('.menu-item').forEach(b => b.classList.remove('active-tab'));
-    document.getElementById('nav-' + id).classList.add('active-tab');
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
     
-    // Rola para o topo de forma suave
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function atualizarStatus() {
-    const agora = new Date();
-    const dia = agora.getDay(); // 0=Dom, 1=Seg, ..., 6=Sab
-    const hora = agora.getHours() + (agora.getMinutes()/60);
-    const statusDiv = document.getElementById('status-loja');
+function status() {
+    const d = new Date();
+    const h = d.getHours() + d.getMinutes()/60;
+    const dia = d.getDay();
+    const el = document.getElementById('status-loja');
     
-    // Seg a Sab: 9h as 19:30 | Dom: 9h as 12h
-    let aberto = (dia >= 1 && dia <= 6 && hora >= 9 && hora < 19.5) || (dia === 0 && hora >= 9 && hora < 12);
+    // Seg-Sab: 09h às 19:30 | Dom: 09h às 12h
+    let ok = (dia >= 1 && dia <= 6 && h >= 9 && h < 19.5) || (dia === 0 && h >= 9 && h < 12);
     
-    if (aberto) {
-        statusDiv.innerHTML = '<span class="dot"></span> ABERTO';
-        statusDiv.className = "aberto";
-    } else {
-        statusDiv.innerHTML = 'FECHADO AGORA';
-        statusDiv.className = "fechado";
-    }
+    el.innerHTML = ok ? '<span class="dot"></span> ABERTO' : 'FECHADO AGORA';
+    el.className = ok ? 'aberto' : 'fechado';
 }
 
-atualizarStatus();
-setInterval(atualizarStatus, 60000); // Atualiza a cada 1 minuto
-
-// Previne menu contextual no toque longo (melhora UX no celular)
-window.oncontextmenu = function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
-};
+status();
+setInterval(status, 30000);
 </script>
 
 </body>
