@@ -28,7 +28,6 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif; 
     background-color: var(--bg); 
     color: #1a1a1a;
-    /* Deixamos um espaço grande no fim para o menu não cobrir nada ao rolar */
     padding-bottom: 140px; 
 }
 
@@ -58,7 +57,7 @@ body {
 .aberto { background: var(--success); }
 .fechado { background: var(--danger); }
 
-/* MENU INFERIOR FIXO */
+/* MENU INFERIOR */
 .menu-inferior {
     position: fixed; bottom: 20px; left: 15px; right: 15px;
     background: var(--primary);
@@ -194,7 +193,7 @@ body {
                 <i class="fa-brands fa-whatsapp"></i> PEDIR AGORA
             </a>
             <div class="address-bar">
-                <p>📍 R. Superagui, 810 - Próximo ao posto</p>
+                <p>📍 R. Superagui, 810 - Guaraqueçaba</p>
             </div>
         </div>
     </section>
@@ -209,7 +208,7 @@ body {
                 <i class="fa-brands fa-whatsapp"></i> PEDIR ÁGUA
             </a>
             <div class="address-bar">
-                <p>📍 Retirada no Depósito: R. Superagui, 810</p>
+                <p>📍 R. Superagui, 810 - Guaraqueçaba</p>
             </div>
         </div>
     </section>
@@ -220,9 +219,9 @@ body {
             <h3>Gás do Povo</h3>
             
             <div class="info-box">
-                <p><b>💳 Cartão do Benefício:</b> Use seu cartão social para o pagamento.</p>
-                <p><b>🏠 Retirada no Depósito:</b> Traga o galão vazio. Custo zero para beneficiários.</p>
-                <p><b>🚚 Entrega:</b> Taxa de entrega de R$ 25,00 por botijão.</p>
+                <p><b>💳 Cartão do Benefício:</b> Pagamento exclusivo via cartão social.</p>
+                <p><b>🏠 Retirada no Depósito:</b> Traga o galão vazio para troca sem custo.</p>
+                <p><b>🚚 Entrega em Casa:</b> Taxa fixa de R$ 25,00.</p>
             </div>
 
             <div class="flow">
@@ -270,7 +269,7 @@ function atualizarStatus() {
     if (dia >= 1 && dia <= 6 && hora >= 9 && hora < 19.5) aberto = true;
     else if (dia === 0 && hora >= 9 && hora < 12) aberto = true;
     
-    statusDiv.innerHTML = aberto ? "● DEPOSITÓRIO ABERTO" : "○ FECHADO AGORA";
+    statusDiv.innerHTML = aberto ? "● DEPÓSITO ABIERTO" : "○ FECHADO AGORA";
     statusDiv.className = aberto ? "aberto" : "fechado";
 }
 
