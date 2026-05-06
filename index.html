@@ -33,7 +33,7 @@
         .header {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
-            padding: 18px 25px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,19 +46,23 @@
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo { width: 45px; height: 45px; border-radius: 12px; }
 
+        .status-container { text-align: right; }
         #status-loja {
             font-size: 11px;
             font-weight: 800;
-            padding: 7px 15px;
+            padding: 5px 12px;
             border-radius: 20px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 6px;
+            margin-bottom: 4px;
         }
         .aberto { background: #e6fffa; color: #00a389; }
         .fechado { background: #fff5f5; color: #e53e3e; }
+        
+        .horario-texto { font-size: 9px; font-weight: 700; color: #718096; display: block; text-transform: uppercase; }
 
-        .dot { height: 8px; width: 8px; border-radius: 50%; background-color: currentColor; animation: pulse 1.8s infinite; }
+        .dot { height: 7px; width: 7px; border-radius: 50%; background-color: currentColor; animation: pulse 1.8s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
         /* MENU INFERIOR */
@@ -95,14 +99,7 @@
             overflow: hidden;
         }
         
-        /* Título com Z-index para ficar sempre na frente */
-        .card h2 { 
-            position: relative; 
-            z-index: 10; 
-            font-size: 24px; 
-            font-weight: 800; 
-            margin-bottom: 10px;
-        }
+        .card h2 { position: relative; z-index: 10; font-size: 24px; font-weight: 800; margin-bottom: 10px; }
 
         .img-produto {
             width: 100%; height: 200px; object-fit: contain;
@@ -112,7 +109,6 @@
             animation: flutuarSuave 4s infinite ease-in-out;
         }
 
-        /* ANIMAÇÃO IGUAL AO DO GÁS (SEM SUBIR MUITO) */
         @keyframes flutuarSuave {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
@@ -149,7 +145,7 @@
             border: 2px solid #edf2f7;
         }
 
-        /* GÁS DO POVO */
+        /* INFO LISTA GÁS DO POVO */
         .info-list { text-align: left; background: #f8faff; padding: 20px; border-radius: 25px; margin-bottom: 20px; }
         .info-list p { font-size: 15px; margin-bottom: 12px; color: #4a5568; display: flex; align-items: center; gap: 10px;}
 
@@ -172,7 +168,11 @@
             <p style="font-size: 11px; color: var(--accent); font-weight: 700;">Guaraqueçaba/PR</p>
         </div>
     </div>
-    <div id="status-loja">...</div>
+    <div class="status-container">
+        <div id="status-loja">...</div>
+        <span class="horario-texto">Seg-Sáb 09h às 19:30</span>
+        <span class="horario-texto">Dom 09h às 12h</span>
+    </div>
 </header>
 
 <nav class="menu-inferior">
@@ -253,7 +253,10 @@ function atualizarStatus() {
     const dia = agora.getDay();
     const hora = agora.getHours() + (agora.getMinutes()/60);
     const statusDiv = document.getElementById('status-loja');
+    
+    // Seg-Sáb: 09h às 19:30 | Dom: 09h às 12h
     let aberto = (dia >= 1 && dia <= 6 && hora >= 9 && hora < 19.5) || (dia === 0 && hora >= 9 && hora < 12);
+    
     statusDiv.innerHTML = aberto ? '<span class="dot"></span> ABERTO' : 'FECHADO AGORA';
     statusDiv.className = aberto ? "aberto" : "fechado";
 }
