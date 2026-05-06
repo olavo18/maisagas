@@ -66,7 +66,7 @@
         .dot { height: 7px; width: 7px; border-radius: 50%; background-color: currentColor; animation: pulse 1.8s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* MOTO ANDANDO DEVAGAR NO FUNDO */
+        /* MOTO NO FUNDO */
         .moto-container {
             position: fixed;
             bottom: 95px;
@@ -111,7 +111,7 @@
         .menu-item.active-tab { color: #fff; transform: translateY(-8px); }
         .menu-item.active-tab i { color: #5ce1ff; }
 
-        /* CONTAINER E CARDS */
+        /* CARDS */
         .container { padding: 25px 20px; max-width: 500px; margin: 0 auto; }
         .card {
             background: var(--white);
@@ -127,10 +127,9 @@
             animation: flutuar 4s infinite ease-in-out;
         }
 
-        /* AJUSTE NA ANIMAÇÃO PARA NÃO SUBIR DEMAIS */
         @keyframes flutuar { 
             0%, 100% { transform: translateY(0); } 
-            50% { transform: translateY(-4px); } /* Subida reduzida para não cobrir o texto */
+            50% { transform: translateY(-4px); } 
         }
 
         .price-text { font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
@@ -155,6 +154,7 @@
         .info-list p { font-size: 15px; margin-bottom: 12px; color: #4a5568; }
 
         .img-cartao { width: 100%; border-radius: 18px; margin-bottom: 15px; }
+        .img-gas-povo { height: 120px; margin-bottom: 15px; animation: flutuar 4s infinite ease-in-out; }
 
         /* TELAS */
         .screen { display: none; }
@@ -204,7 +204,7 @@
             <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Gás%20P13" class="btn-main">
                 <i class="fa-brands fa-whatsapp"></i> PEDIR AGORA
             </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-mapa">
+            <a href="https://maps.google.com/?q=R.+Superagui,+810+Guaraqueçaba" target="_blank" class="btn-mapa">
                 <i class="fa-solid fa-location-dot"></i> R. Superagui, 810 - VER MAPA
             </a>
         </div>
@@ -219,19 +219,17 @@
             <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-main">
                 <i class="fa-solid fa-truck-droplet"></i> PEDIR ÁGUA
             </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Superagui+810+Guaraqueçaba" target="_blank" class="btn-mapa">
-                <i class="fa-solid fa-location-dot"></i> R. Superagui, 810 - VER MAPA
-            </a>
         </div>
     </section>
 
     <section id="povo" class="screen">
         <div class="card">
             <img src="cartão.png" class="img-cartao">
+            <img src="gas.png" class="img-gas-povo">
             <h2>Gás do Povo</h2>
             <div class="info-list">
                 <p><b>💳 Cartão:</b> Pague com seu cartão do benefício.</p>
-                <p><b>🏠 Retirar No Depósito:</b> Sem taxa de entrega.</p>
+                <p><b>🏠 Retirada no Depósito</b></p>
                 <p><b>🚚 Entrega:</b> Taxa de apenas R$ 25,00.</p>
             </div>
             <a href="https://wa.me/5541992056141?text=Dúvida%20Gás%20do%20Povo" class="btn-main">
