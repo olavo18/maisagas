@@ -127,7 +127,11 @@
             animation: flutuar 4s infinite ease-in-out;
         }
 
-        @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        /* AJUSTE NA ANIMAÇÃO PARA NÃO SUBIR DEMAIS */
+        @keyframes flutuar { 
+            0%, 100% { transform: translateY(0); } 
+            50% { transform: translateY(-4px); } /* Subida reduzida para não cobrir o texto */
+        }
 
         .price-text { font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
 
@@ -209,7 +213,7 @@
     <section id="agua" class="screen">
         <div class="card">
             <h2>Água Font Life</h2>
-            <img src="agua_font_life.png" class="img-produto">
+            <img src="agua_font_life.png" class="img-produto" style="margin-top: 15px;">
             <div class="price-text" style="color: var(--accent);">R$ 26,00</div>
             <p style="font-weight: 700; color: #718096; margin-bottom: 20px;">(Com galão para troca)</p>
             <a href="https://wa.me/5541992056141?text=Olá!%20Quero%20pedir%20Água" class="btn-main">
